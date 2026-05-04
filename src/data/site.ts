@@ -43,7 +43,12 @@ export const media = {
   vanity: "https://images.unsplash.com/photo-1604709177225-055f99402ea3?auto=format&fit=crop&w=1800&q=85",
   tiles: "https://images.unsplash.com/photo-1520699049698-acd2fce18736?auto=format&fit=crop&w=1800&q=85",
   tap: "https://images.unsplash.com/photo-1584622781564-1d987f7333c1?auto=format&fit=crop&w=1800&q=85",
-  towelRail: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1800&q=85"
+  towelRail: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1800&q=85",
+  dining: "https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=1800&q=85",
+  decor: "https://images.unsplash.com/photo-1620626011761-996317b8d101?auto=format&fit=crop&w=1800&q=85",
+  carpet: "https://images.unsplash.com/photo-1520699049698-acd2fce18736?auto=format&fit=crop&w=1800&q=85",
+  bedroom: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1800&q=85",
+  sofaWall: "https://images.unsplash.com/photo-1604709177225-055f99402ea3?auto=format&fit=crop&w=1800&q=85"
 };
 
 export const navigation = [
