@@ -85,7 +85,7 @@ export function Header() {
             <span className="font-display text-3xl font-light tracking-tight text-forest">Home Interiors</span>
           </Link>
           <Link href="/" className="lg:hidden">
-            <span className="font-display text-2xl font-bold tracking-tight text-forest">YHI</span>
+            <span className="font-display text-2xl font-bold tracking-tight text-forest">KES</span>
           </Link>
 
           {/* Search */}
