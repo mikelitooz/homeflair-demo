@@ -5,28 +5,30 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        /* ── YHI Brand ────────────────────────────── */
-        forest:        "#1B3A2D",
-        "forest-light":"#2A5144",
-        moss:          "#4A7C5C",
-        wheat:         "#E8D5B5",
-        ivory:         "#F8F5EF",
-        linen:         "#EFE7DA",
-        cream:         "#FAF8F4",
-        charcoal:      "#1A1A18",
-        graphite:      "#2A2825",
-        taupe:         "#82776A",
-        bronze:        "#A47652",
-        smoke:         "#D8D0C3",
+        /* ── Derbyshire Suite Centre Brand ────────── */
+        // We keep the variable names the same so the components don't break, 
+        // but inject the Navy & Gold hex codes.
+        forest:        "#0F2041", // Deep Navy Blue (Primary)
+        "forest-light":"#1D335E", // Lighter Navy
+        moss:          "#2A4474", // Soft Navy
+        wheat:         "#D4AF37", // Warm Gold (Secondary/Accent)
+        ivory:         "#F8F9FA",
+        linen:         "#F1F5F9",
+        cream:         "#F8FAFC",
+        charcoal:      "#0A1128", // Deep Dark Navy/Black
+        graphite:      "#1E293B",
+        taupe:         "#64748B",
+        bronze:        "#B8860B", // Dark Gold
+        smoke:         "#E2E8F0",
       },
       fontFamily: {
         display: ["var(--font-display)", "serif"],
         body:    ["var(--font-body)", "sans-serif"],
       },
       boxShadow: {
-        showroom: "0 24px 70px rgba(25, 24, 23, 0.14)",
-        card:     "0 8px 30px rgba(25, 24, 23, 0.07)",
-        "card-hover": "0 16px 40px rgba(25, 24, 23, 0.12)",
+        showroom: "0 24px 70px rgba(10, 17, 40, 0.14)",
+        card:     "0 8px 30px rgba(10, 17, 40, 0.07)",
+        "card-hover": "0 16px 40px rgba(10, 17, 40, 0.12)",
       },
       borderRadius: {
         card: "12px",

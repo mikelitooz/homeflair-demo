@@ -14,204 +14,144 @@ import {
 } from "lucide-react";
 
 export const business = {
-  name: "Yorkshire Home Interiors Ltd",
-  tagline: "Furniture, carpets and home styling for Sheffield homes.",
-  address: "264 Queens Rd, Lowfield, Sheffield S2 4DL",
-  phone: "0114 349 8269",
-  email: "hello@yorkshirehomeinteriors.co.uk",
+  name: "Derbyshire Suite Centre",
+  tagline: "Quality family-run comfort since 1983.",
+  address: "Derby Road, Clay Cross, Chesterfield, S45 9AG",
+  phone: "01246 862271",
+  email: "info@derbyshiresuitecentre.co.uk",
   rating: "5.0",
-  reviews: "12 Google reviews",
+  reviews: "Trusted family business",
   hours: [
-    ["Monday", "9:30 AM - 5:30 PM"],
-    ["Tuesday", "9:30 AM - 5:30 PM"],
-    ["Wednesday", "9:30 AM - 5:30 PM"],
-    ["Thursday", "9:30 AM - 5:30 PM"],
-    ["Friday", "9:30 AM - 5:30 PM"],
-    ["Saturday", "9:30 AM - 5:30 PM"],
-    ["Sunday", "11:00 AM - 4:00 PM"]
+    ["Monday", "9:30 AM - 5:00 PM"],
+    ["Tuesday", "9:30 AM - 5:00 PM"],
+    ["Wednesday", "9:30 AM - 5:00 PM"],
+    ["Thursday", "9:30 AM - 5:00 PM"],
+    ["Friday", "9:30 AM - 5:00 PM"],
+    ["Saturday", "9:30 AM - 5:00 PM"],
+    ["Sunday", "Closed"]
   ],
   sourceNote:
-    "Business details and review themes are based on the public Yorkshire.com listing, which references Google profile data."
+    "Independent family-run furniture specialists established in 1983."
 };
 
-export const sourcePages = [
-  "https://www.yorkshire.com/sheffield/shopping/furniture-shops/yorkshire-home-interiors-ltd",
-  "https://www.yell.com/biz/yorkshire-furniture-and-carpet-warehouse-sheffield-2539844/",
-  "https://www.loopnet.com/Listing/264-270-Queens-Rd-Sheffield/38065855/"
-];
+export const sourcePages = [];
 
 export const media = {
-  hero:
-    "https://images.unsplash.com/photo-1615873968403-89e068629265?auto=format&fit=crop&w=2200&q=85",
-  showroom:
-    "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1800&q=85",
-  sofaWall:
-    "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1800&q=85",
-  dining:
-    "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1800&q=85",
-  bedroom:
-    "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=1800&q=85",
-  decor:
-    "https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=1800&q=85",
-  chair:
-    "https://images.unsplash.com/photo-1567016432779-094069958ea5?auto=format&fit=crop&w=1800&q=85",
-  wardrobe:
-    "https://images.unsplash.com/photo-1618221118493-9cfa1a1c00da?auto=format&fit=crop&w=1800&q=85",
-  coffee:
-    "https://images.unsplash.com/photo-1617104678098-de229db51175?auto=format&fit=crop&w=1800&q=85",
-  carpet:
-    "https://images.unsplash.com/photo-1600121848594-d8644e57abab?auto=format&fit=crop&w=1800&q=85"
+  hero: "https://images.unsplash.com/photo-1615873968403-89e068629265?auto=format&fit=crop&w=2200&q=85",
+  showroom: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1800&q=85",
+  sofaWall: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1800&q=85",
+  dining: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1800&q=85",
+  bedroom: "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=1800&q=85",
+  decor: "https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=1800&q=85",
+  chair: "https://images.unsplash.com/photo-1567016432779-094069958ea5?auto=format&fit=crop&w=1800&q=85",
+  wardrobe: "https://images.unsplash.com/photo-1618221118493-9cfa1a1c00da?auto=format&fit=crop&w=1800&q=85",
+  coffee: "https://images.unsplash.com/photo-1617104678098-de229db51175?auto=format&fit=crop&w=1800&q=85",
+  carpet: "https://images.unsplash.com/photo-1600121848594-d8644e57abab?auto=format&fit=crop&w=1800&q=85"
 };
 
 export const navigation = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
-  { label: "Collection", href: "/collection" },
-  { label: "Services", href: "/services" },
-  { label: "Gallery", href: "/gallery" },
+  { label: "Our Suites", href: "/collection" },
+  { label: "Lift & Tilt Chairs", href: "/services" },
+  { label: "Home Visits", href: "/gallery" },
   { label: "Contact", href: "/contact" }
 ];
 
 export const collections = [
   {
-    title: "Corner Sofas",
-    description: "Generous family seating with modern fabrics and practical layouts.",
-    price: "From £699",
+    title: "Lift & Tilt Chairs",
+    description: "Bespoke comfort and mobility support, perfectly tailored to you.",
+    price: "From £599",
+    image: media.chair,
+    icon: Armchair
+  },
+  {
+    title: "Traditional Suites",
+    description: "Classic 3-piece suites built with family-run quality.",
+    price: "From £999",
     image: media.sofaWall,
     icon: Sofa
   },
   {
     title: "Recliner Sofas",
-    description: "Relaxed comfort with supportive seating and showroom-ready finishes.",
+    description: "Relaxed comfort with supportive seating and premium fabrics.",
     price: "From £849",
-    image: media.chair,
-    icon: Armchair
-  },
-  {
-    title: "Dining Sets",
-    description: "Tables and chairs for everyday meals, hosting, and open-plan spaces.",
-    price: "From £499",
-    image: media.dining,
-    icon: UsersRound
-  },
-  {
-    title: "Beds",
-    description: "Statement beds, mattresses, and bedroom bundles for restful rooms.",
-    price: "From £399",
-    image: media.bedroom,
-    icon: BedDouble
-  },
-  {
-    title: "Wardrobes",
-    description: "Storage-led bedroom furniture with clean proportions and rich finishes.",
-    price: "From £549",
-    image: media.wardrobe,
-    icon: Columns3
-  },
-  {
-    title: "Coffee Tables",
-    description: "Compact centrepieces, nesting tables, and occasional furniture.",
-    price: "From £129",
-    image: media.coffee,
-    icon: LampFloor
-  },
-  {
-    title: "Living Room Furniture",
-    description: "TV units, sideboards, sofas, chairs, rugs, and finishing touches.",
-    price: "From £199",
     image: media.showroom,
     icon: Sofa
   },
   {
-    title: "Home Decor",
-    description: "Mirrors, lighting, cushions, accessories, and styled room details.",
-    price: "From £39",
-    image: media.decor,
-    icon: Sparkles
+    title: "Bedroom Cabinets",
+    description: "Durable, classic storage solutions for restful rooms.",
+    price: "From £249",
+    image: media.wardrobe,
+    icon: Columns3
+  },
+  {
+    title: "Beds & Mattresses",
+    description: "Supportive mattresses and sturdy frames for a great night's sleep.",
+    price: "From £399",
+    image: media.bedroom,
+    icon: BedDouble
   }
 ];
 
 export const services = [
   {
-    title: "Interior Design",
-    description: "A guided showroom experience to shape colours, textures, furniture and flooring around your home.",
-    icon: Sparkles
-  },
-  {
-    title: "Furniture Consultation",
-    description: "Practical advice on sofa sizing, bed choices, dining layouts and finishes before you buy.",
-    icon: Sofa
-  },
-  {
-    title: "Space Planning",
-    description: "Room-by-room layout guidance so large pieces feel balanced and comfortable in real spaces.",
-    icon: Ruler
-  },
-  {
-    title: "Furniture Delivery",
-    description: "Coordinated local delivery with careful handling, assembly options and timing that suits you.",
+    title: "Free Home Visits",
+    description: "Can't make it to the showroom? We offer a free, no-obligation home visit service.",
     icon: Truck
   },
   {
-    title: "Home Styling",
-    description: "Finishing touches across rugs, lighting, decor and occasional pieces for a pulled-together look.",
-    icon: LampFloor
+    title: "Lift & Tilt Experts",
+    description: "Specialist advice to ensure you get the perfect supportive chair for your needs.",
+    icon: Armchair
   },
   {
-    title: "Custom Furniture Advice",
-    description: "Support choosing the right configurations, colours and storage pieces for long-term use.",
-    icon: PackageCheck
+    title: "Family Run Since 1983",
+    description: "Decades of experience providing honest advice and quality furniture.",
+    icon: UsersRound
   }
 ];
 
 export const reasons = [
-  { title: "Showroom Choice", description: "Sofas, beds, wardrobes, carpets and home essentials under one roof." },
-  { title: "Local Sheffield Team", description: "Friendly, practical guidance from people who know the area and homes nearby." },
-  { title: "Delivery & Assembly", description: "A smoother route from showroom decision to furniture placed in your room." },
-  { title: "Strong Value", description: "Quality-led furniture with offers and bundles designed for real households." }
+  { title: "Established 1983", description: "An independent, family-run business you can trust." },
+  { title: "Home Visit Service", description: "Free, no-obligation home visits if you cannot reach our showroom." },
+  { title: "Specialist Knowledge", description: "Experts in lift & tilt chairs and mobility seating." },
+  { title: "Quality Guaranteed", description: "Premium suites and bedroom cabinets built to last." }
 ];
 
 export const testimonials = [
   {
-    quote:
-      "The quality was excellent, the price was great value, and the team assembled everything carefully and professionally.",
-    name: "Google review summary",
-    detail: "Furniture customer"
+    quote: "Fantastic family-run business. They brought a chair to my home to try. Highly recommended.",
+    name: "Verified Customer",
+    detail: "Lift & Tilt Customer"
   },
   {
-    quote:
-      "Friendly, knowledgeable staff helped me find the perfect carpet. Installation was quick and professional.",
-    name: "Google review summary",
-    detail: "Flooring customer"
-  },
-  {
-    quote:
-      "Purchased a sofa, bed and wardrobe. Delivery was fantastic and the team put everything together.",
-    name: "Google review summary",
-    detail: "Bedroom and living customer"
+    quote: "Beautiful traditional suite, excellent quality, and the delivery team were so polite and helpful.",
+    name: "Verified Customer",
+    detail: "Suite Customer"
   }
 ];
 
 export const gallery = [
-  { src: media.hero, title: "Premium sofa styling", span: "md:col-span-2 md:row-span-2" },
-  { src: media.showroom, title: "Showroom atmosphere", span: "" },
-  { src: media.sofaWall, title: "Sofa collections", span: "" },
-  { src: media.dining, title: "Dining inspiration", span: "md:col-span-2" },
-  { src: media.bedroom, title: "Bedroom furniture", span: "" },
-  { src: media.decor, title: "Decor and finishing", span: "" },
-  { src: media.wardrobe, title: "Wardrobes and storage", span: "" },
-  { src: media.carpet, title: "Carpets and flooring", span: "md:col-span-2" }
+  { src: media.hero, title: "Premium suites", span: "md:col-span-2 md:row-span-2" },
+  { src: media.chair, title: "Lift & Tilt Chairs", span: "" },
+  { src: media.sofaWall, title: "Traditional Sofas", span: "" },
+  { src: media.bedroom, title: "Bedroom furniture", span: "md:col-span-2" },
+  { src: media.wardrobe, title: "Bedroom Cabinets", span: "" },
+  { src: media.showroom, title: "Showroom", span: "" }
 ];
 
 export const stats = [
-  { value: business.rating, label: "Google rating" },
-  { value: "7 days", label: "Showroom opening" },
-  { value: "264", label: "Queens Road location" },
-  { value: "Sheffield", label: "Local delivery focus" }
+  { value: "1983", label: "Year Established" },
+  { value: "Free", label: "Home Visit Service" },
+  { value: "100%", label: "Family Run" },
+  { value: "Chesterfield", label: "Local Delivery" }
 ];
 
 export const contactCards = [
   { title: "Visit the showroom", value: business.address, icon: MapPin },
   { title: "Call", value: business.phone, icon: Clock },
-  { title: "Opening", value: "Open 7 days a week", icon: PackageCheck }
+  { title: "Home Visits", value: "Available on request", icon: Truck }
 ];
