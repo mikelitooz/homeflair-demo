@@ -81,7 +81,7 @@ export function Header() {
 
           {/* Logo */}
           <Link href="/" className="hidden lg:flex items-center gap-2">
-            <span className="font-display text-3xl font-bold tracking-tight text-forest">Yorkshire</span>
+            <span className="font-display text-3xl font-bold tracking-tight text-forest">Derbyshire</span>
             <span className="font-display text-3xl font-light tracking-tight text-forest">Home Interiors</span>
           </Link>
           <Link href="/" className="lg:hidden">
@@ -176,7 +176,7 @@ export function Header() {
           <div className="px-4 py-4">
             <div className="mb-4 flex items-center gap-2 rounded-lg bg-cream px-3 py-2.5 text-sm text-taupe">
               <Truck className="h-4 w-4 text-forest" />
-              Free local delivery across Sheffield
+              Free local delivery across Chesterfield
             </div>
             <div className="grid gap-0.5">
               <Link href="/shop" onClick={() => setMobileOpen(false)} className="flex items-center justify-between rounded-lg px-3 py-3 font-semibold text-charcoal hover:bg-cream transition-colors">
@@ -197,7 +197,7 @@ export function Header() {
                 <ShoppingBasket className="h-4 w-4" /> Basket ({totalItems})
               </Link>
               <Link href="/contact" onClick={() => setMobileOpen(false)} className="flex items-center gap-2 rounded-lg px-3 py-2.5 text-sm text-taupe hover:bg-cream transition-colors">
-                <MapPin className="h-4 w-4" /> Visit our Sheffield showroom
+                <MapPin className="h-4 w-4" /> Visit our Chesterfield showroom
               </Link>
             </div>
           </div>

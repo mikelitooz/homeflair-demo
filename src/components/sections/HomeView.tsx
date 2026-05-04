@@ -20,8 +20,8 @@ const heroSlides = [
     image: "https://images.unsplash.com/photo-1615874694520-474822394e73?auto=format&fit=crop&w=2000&q=85",
     alt: "Luxury corner sofa in styled living room",
     tag: "New collection",
-    headline: "Handpicked furniture for Yorkshire homes",
-    copy: "Sofas, beds, dining and decor curated for the way you live. Visit our Sheffield showroom or shop online.",
+    headline: "Handpicked furniture for Derbyshire homes",
+    copy: "Sofas, beds, dining and decor curated for the way you live. Visit our Chesterfield showroom or shop online.",
     primaryCta: { label: "Shop all furniture", href: "/shop" },
     secondaryCta: { label: "View offers", href: "/shop?offer=true" },
   },
@@ -277,7 +277,7 @@ export function HomeView() {
         <div className="relative overflow-hidden rounded-card bg-forest px-8 py-10 text-center md:py-12">
           <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=2000&q=30')] bg-cover bg-center opacity-15" />
           <div className="relative z-10">
-            <p className="text-xs font-bold uppercase tracking-widest text-wheat">Yorkshire Home Interiors</p>
+            <p className="text-xs font-bold uppercase tracking-widest text-wheat">Derbyshire Suite Centre</p>
             <h2 className="mt-2 font-display text-3xl font-bold text-white sm:text-4xl md:text-5xl">
               Furnish your whole home with one basket
             </h2>
@@ -366,7 +366,7 @@ export function HomeView() {
             First access to new collections & offers
           </h3>
           <p className="mt-2 text-sm text-taupe">
-            Sign up for product drops, room inspiration and seasonal sale updates from Yorkshire Home Interiors.
+            Sign up for product drops, room inspiration and seasonal sale updates from Derbyshire Suite Centre.
           </p>
           <form className="mx-auto mt-6 flex max-w-md gap-2">
             <label htmlFor="newsletter" className="sr-only">Email address</label>

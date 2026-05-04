@@ -22,15 +22,15 @@ const body = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL("https://yorkshire-home-interiors-demo.vercel.app"),
   title: {
-    default: "Yorkshire Home Interiors | Furniture & Home Styling for Sheffield",
-    template: "%s | Yorkshire Home Interiors",
+    default: "Derbyshire Suite Centre | Furniture & Home Styling for Chesterfield",
+    template: "%s | Derbyshire Suite Centre",
   },
   description:
-    "Handpicked sofas, beds, dining sets, wardrobes and home decor for Sheffield and South Yorkshire homes. Visit our Queens Road showroom or shop online.",
+    "Handpicked sofas, beds, dining sets, wardrobes and home decor for Chesterfield and South Derbyshire homes. Visit our Derby Road showroom or shop online.",
   openGraph: {
-    title: "Yorkshire Home Interiors | Furniture & Home Styling for Sheffield",
+    title: "Derbyshire Suite Centre | Furniture & Home Styling for Chesterfield",
     description:
-      "Browse sofas, beds, dining, decor and complete your order. Handpicked furniture for Yorkshire homes.",
+      "Browse sofas, beds, dining, decor and complete your order. Handpicked furniture for Derbyshire homes.",
     type: "website",
   },
 };

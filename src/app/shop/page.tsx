@@ -12,7 +12,7 @@ type Props = {
 
 export const metadata: Metadata = {
   title: "Shop",
-  description: "Browse Yorkshire Home Interiors products by category, room, and offers."
+  description: "Browse Derbyshire Suite Centre products by category, room, and offers."
 };
 
 export default async function ShopPage({ searchParams }: Props) {

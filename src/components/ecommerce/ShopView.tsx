@@ -62,8 +62,8 @@ export function ShopView({
       </h1>
       <p className="mt-2 text-sm text-taupe">
         {offerOnly
-          ? "Handpicked offers on sofas, beds, dining and decor from Yorkshire Home Interiors."
-          : "Browse sofas, beds, dining, decor and more from Yorkshire Home Interiors."}
+          ? "Handpicked offers on sofas, beds, dining and decor from Derbyshire Suite Centre."
+          : "Browse sofas, beds, dining, decor and more from Derbyshire Suite Centre."}
       </p>
 
       {/* ── Filter panel ─────────────────────────── */}

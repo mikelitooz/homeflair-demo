@@ -9,8 +9,8 @@ export function AboutView() {
     <main>
       <PageHero
         eyebrow="About the showroom"
-        title="A Sheffield furniture destination with practical local service."
-        body="This demo positions Yorkshire Home Interiors Ltd as a trusted Queens Road showroom for furniture, carpets and home essentials, with an elevated digital experience that feels ready for modern retail."
+        title="A Chesterfield furniture destination with practical local service."
+        body="This demo positions Derbyshire Suite Centre as a trusted Derby Road showroom for furniture, carpets and home essentials, with an elevated digital experience that feels ready for modern retail."
         image={media.showroom}
       />
       <section className="bg-ivory px-4 py-20 sm:px-6 lg:px-8">
