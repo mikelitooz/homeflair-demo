@@ -88,7 +88,7 @@ export function ProductCard({ product, showQuickView = true }: ProductCardProps)
             </Link>
             <button
               type="button"
-              onClick={() => addToCart(product.slug, 1)}
+              onClick={() => addToCart(product, 1)}
               className="btn-primary !px-3 !py-2 !text-xs"
             >
               <ShoppingCart className="h-3.5 w-3.5" />
@@ -138,7 +138,7 @@ export function ProductCard({ product, showQuickView = true }: ProductCardProps)
                 <button
                   type="button"
                   onClick={() => {
-                    addToCart(product.slug, 1);
+                    addToCart(product, 1);
                     setQuickView(false);
                   }}
                   className="btn-primary"

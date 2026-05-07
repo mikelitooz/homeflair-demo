@@ -3,7 +3,7 @@ import { AboutView } from "@/components/sections/AboutView";
 
 export const metadata: Metadata = {
   title: "About",
-  description: "Learn about Right Price Carpets, a family-run flooring business in Clay Cross."
+  description: "Learn about Emmy's Shop, a family-run flooring business in Sheffield."
 };
 
 export default function AboutPage() {

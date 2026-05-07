@@ -83,7 +83,7 @@ export function CheckoutView() {
             <Lock className="h-4 w-4" /> Place order
           </button>
           <p className="mt-3 flex items-center justify-center gap-1.5 text-[11px] text-taupe">
-            <ShieldCheck className="h-3.5 w-3.5" /> Secure checkout · Right Price Carpets
+            <ShieldCheck className="h-3.5 w-3.5" /> Secure checkout · Emmy's Shop
           </p>
         </aside>
       </div>

@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ProductDetailView } from "@/components/ecommerce/ProductDetailView";
-import { getProductBySlug } from "@/data/ecommerce";
+import { getProductBySlug, getRelatedProducts } from "@/data/ecommerce";
+
+export const revalidate = 0;
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -9,7 +11,7 @@ type Props = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const product = getProductBySlug(slug);
+  const product = await getProductBySlug(slug);
   if (!product) return { title: "Product not found" };
   return {
     title: product.name,
@@ -19,8 +21,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function ProductPage({ params }: Props) {
   const { slug } = await params;
-  const product = getProductBySlug(slug);
+  const product = await getProductBySlug(slug);
   if (!product) notFound();
 
-  return <ProductDetailView product={product} />;
+  const related = await getRelatedProducts(product);
+
+  return <ProductDetailView product={product} related={related} />;
 }

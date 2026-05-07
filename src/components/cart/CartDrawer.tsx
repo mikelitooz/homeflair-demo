@@ -3,11 +3,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Minus, Plus, Trash2, X } from "lucide-react";
-import { currency, products } from "@/data/ecommerce";
+import { currency } from "@/data/ecommerce";
 import { useCart } from "@/components/cart/CartProvider";
 
 export function CartDrawer() {
-  const { lines, isCartOpen, closeCart, updateQuantity, removeFromCart, subtotal } = useCart();
+  const { lines, isCartOpen, closeCart, updateQuantity, removeFromCart, subtotal, checkoutUrl } = useCart();
 
   return (
     <div className={isCartOpen ? "pointer-events-auto fixed inset-0 z-[90]" : "pointer-events-none fixed inset-0 z-[90]"}>
@@ -41,24 +41,25 @@ export function CartDrawer() {
           ) : (
             <div className="space-y-3">
               {lines.map((line) => {
-                const product = products.find((p) => p.slug === line.slug);
+                const product = line.merchandise.product;
                 if (!product) return null;
+                const price = parseFloat(product.priceRange.minVariantPrice.amount);
                 return (
-                  <article key={line.slug} className="rounded-card border border-smoke/50 p-3">
+                  <article key={line.id} className="rounded-card border border-smoke/50 p-3">
                     <div className="flex gap-3">
                       <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-lg">
-                        <Image src={product.images[0]} alt={product.name} fill sizes="80px" className="object-cover" />
+                        <Image src={product.images.edges[0]?.node.url || "https://images.unsplash.com/photo-1600585154340-be6161a56a0c"} alt={product.title} fill sizes="80px" className="object-cover" />
                       </div>
                       <div className="min-w-0 flex-1">
-                        <p className="line-clamp-2 text-sm font-semibold text-charcoal">{product.name}</p>
-                        <p className="mt-1 text-sm font-bold text-forest">{currency(product.price)}</p>
+                        <p className="line-clamp-2 text-sm font-semibold text-charcoal">{product.title}</p>
+                        <p className="mt-1 text-sm font-bold text-forest">{currency(price)}</p>
                         <div className="mt-2 flex items-center justify-between">
                           <div className="inline-flex items-center rounded-lg border border-smoke">
-                            <button type="button" onClick={() => updateQuantity(line.slug, line.quantity - 1)} className="px-2.5 py-1 text-taupe hover:text-charcoal" aria-label="Decrease"><Minus className="h-3.5 w-3.5" /></button>
+                            <button type="button" onClick={() => updateQuantity(line.id, line.quantity - 1)} className="px-2.5 py-1 text-taupe hover:text-charcoal" aria-label="Decrease"><Minus className="h-3.5 w-3.5" /></button>
                             <span className="w-7 text-center text-xs font-semibold text-charcoal">{line.quantity}</span>
-                            <button type="button" onClick={() => updateQuantity(line.slug, line.quantity + 1)} className="px-2.5 py-1 text-taupe hover:text-charcoal" aria-label="Increase"><Plus className="h-3.5 w-3.5" /></button>
+                            <button type="button" onClick={() => updateQuantity(line.id, line.quantity + 1)} className="px-2.5 py-1 text-taupe hover:text-charcoal" aria-label="Increase"><Plus className="h-3.5 w-3.5" /></button>
                           </div>
-                          <button type="button" onClick={() => removeFromCart(line.slug)} className="text-taupe hover:text-red-600 transition-colors" aria-label="Remove"><Trash2 className="h-4 w-4" /></button>
+                          <button type="button" onClick={() => removeFromCart(line.id)} className="text-taupe hover:text-red-600 transition-colors" aria-label="Remove"><Trash2 className="h-4 w-4" /></button>
                         </div>
                       </div>
                     </div>
@@ -77,7 +78,9 @@ export function CartDrawer() {
           </div>
           <div className="grid gap-2">
             <Link href="/cart" onClick={closeCart} className="btn-secondary w-full justify-center">View basket</Link>
-            <Link href="/checkout" onClick={closeCart} className="btn-primary w-full justify-center">Checkout</Link>
+            {checkoutUrl && (
+              <a href={checkoutUrl} onClick={closeCart} className="btn-primary w-full justify-center">Checkout</a>
+            )}
           </div>
         </div>
       </aside>

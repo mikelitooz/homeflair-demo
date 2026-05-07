@@ -1,8 +1,8 @@
 import {
-  Layers,
-  TreePine,
-  Ruler,
-  Scissors,
+  Sofa,
+  Bed,
+  Armchair,
+  LampDesk,
   Clock,
   MapPin,
   PackageCheck,
@@ -12,140 +12,140 @@ import {
 } from "lucide-react";
 
 export const business = {
-  name: "Right Price Carpets",
-  tagline: "Quality carpets & flooring at unbeatable prices.",
-  address: "87 High St, Clay Cross, Chesterfield, S45 9DZ",
-  phone: "07976 320250",
-  email: "info@rightpricecarpets.co.uk",
-  rating: "4.8",
-  reviews: "Trusted local flooring specialist",
+  name: "Emmy's Shop",
+  tagline: "Beautiful boutique furniture for every home.",
+  address: "3 Stubbin Ln, Sheffield S5 6QG, UK",
+  phone: "+44 7735 444965",
+  email: "hello@emmysshop.co.uk",
+  rating: "4.9",
+  reviews: "Trusted local furniture boutique",
   hours: [
-    ["Monday", "Closed"],
+    ["Monday", "9:30 AM - 5:00 PM"],
     ["Tuesday", "9:30 AM - 5:00 PM"],
     ["Wednesday", "9:30 AM - 5:00 PM"],
     ["Thursday", "9:30 AM - 5:00 PM"],
     ["Friday", "9:30 AM - 5:00 PM"],
-    ["Saturday", "9:30 AM - 4:00 PM"],
+    ["Saturday", "10:00 AM - 4:00 PM"],
     ["Sunday", "Closed"]
   ],
   sourceNote:
-    "Family-run flooring specialists on High St, Clay Cross, Chesterfield."
+    "Boutique local furniture shop located in Sheffield."
 };
 
 export const sourcePages = [];
 
 export const media = {
-  hero: "https://images.unsplash.com/photo-1615874694520-474822394e73?auto=format&fit=crop&w=2200&q=85",
-  showroom: "https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=1800&q=85",
-  bath: "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=1800&q=85",
-  shower: "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=1800&q=85",
-  vanity: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1800&q=85",
-  tiles: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1800&q=85",
-  tap: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1800&q=85",
-  towelRail: "https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=1800&q=85",
-  dining: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1800&q=85",
-  decor: "https://images.unsplash.com/photo-1615874694520-474822394e73?auto=format&fit=crop&w=1800&q=85",
+  hero: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=2200&q=85",
+  showroom: "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=1800&q=85",
+  bath: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1800&q=85",
+  shower: "https://images.unsplash.com/photo-1615874694520-474822394e73?auto=format&fit=crop&w=1800&q=85",
+  vanity: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1800&q=85",
+  tiles: "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=1800&q=85",
+  tap: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1800&q=85",
+  towelRail: "https://images.unsplash.com/photo-1615874694520-474822394e73?auto=format&fit=crop&w=1800&q=85",
+  dining: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1800&q=85",
+  decor: "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=1800&q=85",
   carpet: "https://images.unsplash.com/photo-1615874694520-474822394e73?auto=format&fit=crop&w=1800&q=85",
-  bedroom: "https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=1800&q=85",
-  sofaWall: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1800&q=85"
+  bedroom: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1800&q=85",
+  sofaWall: "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=1800&q=85"
 };
 
 export const navigation = [
   { label: "Home", href: "/" },
-  { label: "About Us", href: "/about" },
-  { label: "Flooring", href: "/collection" },
-  { label: "Services", href: "/services" },
+  { label: "About", href: "/about" },
+  { label: "Sofas", href: "/collection" },
+  { label: "Beds", href: "/services" },
   { label: "Gallery", href: "/gallery" },
   { label: "Contact", href: "/contact" }
 ];
 
 export const collections = [
   {
-    title: "Carpets",
-    description: "Over 30 rolls in stock from leading UK manufacturers.",
-    price: "From £6.99/sqm",
-    image: media.carpet,
-    icon: Layers
-  },
-  {
-    title: "Laminate Flooring",
-    description: "Supply and professionally fitted laminate flooring.",
-    price: "From £12.99/sqm",
+    title: "Sofas & Armchairs",
+    description: "Plush velvet and durable weave fabrics.",
+    price: "From £399",
     image: media.showroom,
-    icon: Ruler
+    icon: Sofa
   },
   {
-    title: "LVT Flooring",
-    description: "Luxury vinyl tiles — waterproof, durable, and stylish.",
-    price: "From £18.99/sqm",
-    image: media.tiles,
-    icon: Sparkles
+    title: "Beds & Mattresses",
+    description: "Handcrafted frames and orthopaedic mattresses.",
+    price: "From £249",
+    image: media.bedroom,
+    icon: Bed
   },
   {
-    title: "Artificial Grass",
-    description: "Low-maintenance artificial grass for gardens and patios.",
-    price: "From £9.99/sqm",
+    title: "Dining Sets",
+    description: "Solid wood tables with upholstered chairs.",
+    price: "From £499",
     image: media.dining,
-    icon: TreePine
+    icon: Armchair
+  },
+  {
+    title: "Home Accents",
+    description: "Mirrors, lighting, and beautiful decor.",
+    price: "From £49",
+    image: media.decor,
+    icon: LampDesk
   }
 ];
 
 export const services = [
   {
-    title: "Supply & Fit",
-    description: "Professional fitting service for all carpet and flooring types. Over 30 years trade experience.",
-    icon: Ruler
+    title: "Personal Styling",
+    description: "We help you select pieces that perfectly match your home's aesthetic.",
+    icon: Sparkles
   },
   {
-    title: "Carpet Binding",
-    description: "In-store binding machine to turn waste carpet into rugs, doormats, or caravan flooring.",
-    icon: Scissors
+    title: "White Glove Delivery",
+    description: "Our delivery team brings your furniture to your room of choice.",
+    icon: Truck
   },
   {
-    title: "Free Measuring",
-    description: "We'll visit your home to measure up and advise on the best flooring for each room.",
-    icon: UsersRound
+    title: "Assembly Included",
+    description: "Most of our items are assembled free of charge upon delivery.",
+    icon: PackageCheck
   }
 ];
 
 export const reasons = [
-  { title: "30+ Years", description: "Over three decades of experience in the carpet and flooring trade." },
-  { title: "Family Run", description: "A friendly, personal service you won't get from big chains." },
-  { title: "Unbeatable Prices", description: "Right price, every time. Competitive pricing on all stock." },
-  { title: "Leading Brands", description: "Stockists of Cormar, Associated Weavers, Regency and Abingdon." }
+  { title: "Boutique Selection", description: "Carefully curated pieces you won't find in big chain stores." },
+  { title: "Local Sheffield Business", description: "Serving our local community with pride and care." },
+  { title: "High Quality", description: "We source our furniture from premium makers." },
+  { title: "Friendly Service", description: "No pressure sales, just helpful interior advice." }
 ];
 
 export const testimonials = [
   {
-    quote: "Brilliant service from start to finish. The carpet looks fantastic and the price was unbeatable.",
-    name: "Verified Customer",
-    detail: "Carpet Supply & Fit"
+    quote: "Absolutely love my new velvet sofa from Emmy's! Delivery was smooth and the quality is amazing.",
+    name: "Sarah Jenkins",
+    detail: "Sofa Purchase"
   },
   {
-    quote: "Had a rug made from leftover carpet using their binding machine. Such a great idea and really well done.",
-    name: "Verified Customer",
-    detail: "Carpet Binding"
+    quote: "Found the perfect dining set here. Much better quality than the online giants and lovely customer service.",
+    name: "David Smith",
+    detail: "Dining Set"
   }
 ];
 
 export const gallery = [
-  { src: media.hero, title: "Luxury Carpet", span: "md:col-span-2 md:row-span-2" },
+  { src: media.hero, title: "Living Room Inspiration", span: "md:col-span-2 md:row-span-2" },
   { src: media.showroom, title: "Our Showroom", span: "" },
-  { src: media.tiles, title: "LVT Flooring", span: "" },
-  { src: media.dining, title: "Artificial Grass", span: "md:col-span-2" },
-  { src: media.carpet, title: "Carpet Rolls", span: "" },
-  { src: media.bedroom, title: "Fitted Flooring", span: "" }
+  { src: media.bedroom, title: "Bedroom Sets", span: "" },
+  { src: media.dining, title: "Dining Spaces", span: "md:col-span-2" },
+  { src: media.decor, title: "Home Accessories", span: "" },
+  { src: media.carpet, title: "Occasional Chairs", span: "" }
 ];
 
 export const stats = [
-  { value: "30+", label: "Years Experience" },
-  { value: "Family", label: "Run Business" },
-  { value: "Boro", label: "Proud Sponsors" },
-  { value: "Snap", label: "Finance Available" }
+  { value: "Sheffield", label: "Local Boutique" },
+  { value: "Curated", label: "Furniture Selection" },
+  { value: "White Glove", label: "Delivery Service" },
+  { value: "5-Star", label: "Customer Rating" }
 ];
 
 export const contactCards = [
-  { title: "Visit the showroom", value: business.address, icon: MapPin },
+  { title: "Visit us", value: business.address, icon: MapPin },
   { title: "Call", value: business.phone, icon: Clock },
-  { title: "Free Measuring", value: "Book a home visit", icon: Ruler }
+  { title: "Email", value: business.email, icon: UsersRound }
 ];

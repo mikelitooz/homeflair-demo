@@ -5,15 +5,14 @@ import Link from "next/link";
 import { useState } from "react";
 import { ChevronRight, ShieldCheck, Truck } from "lucide-react";
 import type { Product } from "@/data/ecommerce";
-import { currency, getRelatedProducts } from "@/data/ecommerce";
+import { currency } from "@/data/ecommerce";
 import { ProductCard } from "@/components/ecommerce/ProductCard";
 import { useCart } from "@/components/cart/CartProvider";
 
-export function ProductDetailView({ product }: { product: Product }) {
+export function ProductDetailView({ product, related }: { product: Product, related: Product[] }) {
   const [selectedImage, setSelectedImage] = useState(product.images[0]);
   const [quantity, setQuantity] = useState(1);
   const { addToCart } = useCart();
-  const related = getRelatedProducts(product);
 
   return (
     <main className="mx-auto max-w-7xl px-4 pb-14 pt-6 sm:px-6 lg:px-8">
@@ -123,7 +122,7 @@ export function ProductDetailView({ product }: { product: Product }) {
             </select>
             <button
               type="button"
-              onClick={() => addToCart(product.slug, quantity)}
+              onClick={() => addToCart(product, quantity)}
               className="btn-primary flex-1"
             >
               Add to basket

@@ -1,11 +1,21 @@
 "use client";
 
-import { createContext, useCallback, useContext, useMemo, useRef, useState } from "react";
-import { products } from "@/data/ecommerce";
+import { createContext, useCallback, useContext, useEffect, useRef, useState } from "react";
+import { Product } from "@/data/ecommerce";
+import { createCart, getCart, addToCart as shopifyAddToCart, updateCartLine as shopifyUpdateCartLine, removeCartLine as shopifyRemoveCartLine } from "@/lib/shopify-cart";
 
-type CartLine = {
-  slug: string;
+export type ShopifyCartLine = {
+  id: string;
   quantity: number;
+  merchandise: {
+    id: string;
+    product: {
+      handle: string;
+      title: string;
+      images: { edges: { node: { url: string } }[] };
+      priceRange: { minVariantPrice: { amount: string } };
+    };
+  };
 };
 
 type ToastState = {
@@ -14,11 +24,14 @@ type ToastState = {
 };
 
 type CartContextValue = {
-  lines: CartLine[];
+  cartId: string | null;
+  checkoutUrl: string | null;
+  lines: ShopifyCartLine[];
   isCartOpen: boolean;
-  addToCart: (slug: string, quantity?: number) => void;
-  removeFromCart: (slug: string) => void;
-  updateQuantity: (slug: string, quantity: number) => void;
+  isUpdating: boolean;
+  addToCart: (product: Product, quantity?: number) => Promise<void>;
+  removeFromCart: (lineId: string) => Promise<void>;
+  updateQuantity: (lineId: string, quantity: number) => Promise<void>;
   clearCart: () => void;
   openCart: () => void;
   closeCart: () => void;
@@ -30,8 +43,11 @@ type CartContextValue = {
 const CartContext = createContext<CartContextValue | null>(null);
 
 export function CartProvider({ children }: { children: React.ReactNode }) {
-  const [lines, setLines] = useState<CartLine[]>([]);
+  const [cartId, setCartId] = useState<string | null>(null);
+  const [checkoutUrl, setCheckoutUrl] = useState<string | null>(null);
+  const [lines, setLines] = useState<ShopifyCartLine[]>([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [isUpdating, setIsUpdating] = useState(false);
   const [toast, setToast] = useState<ToastState>({ message: "", visible: false });
   const toastTimer = useRef<ReturnType<typeof setTimeout>>();
 
@@ -43,59 +59,89 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     }, 2500);
   }, []);
 
-  const addToCart = useCallback(
-    (slug: string, quantity = 1) => {
-      const product = products.find((p) => p.slug === slug);
-      setLines((current) => {
-        const existing = current.find((line) => line.slug === slug);
-        if (existing) {
-          return current.map((line) =>
-            line.slug === slug ? { ...line, quantity: line.quantity + quantity } : line
-          );
+  // Initialize cart from localStorage
+  useEffect(() => {
+    async function initCart() {
+      const storedCartId = localStorage.getItem("shopify_cart_id");
+      if (storedCartId) {
+        const cart = await getCart(storedCartId);
+        if (cart) {
+          setCartId(cart.id);
+          setCheckoutUrl(cart.checkoutUrl);
+          setLines(cart.lines.edges.map((e: any) => e.node));
+          return;
         }
-        return [...current, { slug, quantity }];
-      });
-      setIsCartOpen(true);
-      if (product) {
-        showToast(`${product.name} added to basket`);
       }
-    },
-    [showToast]
-  );
-
-  const removeFromCart = useCallback((slug: string) => {
-    setLines((current) => current.filter((line) => line.slug !== slug));
+      // Create new cart if none exists or invalid
+      const newCart = await createCart();
+      if (newCart) {
+        localStorage.setItem("shopify_cart_id", newCart.id);
+        setCartId(newCart.id);
+        setCheckoutUrl(newCart.checkoutUrl);
+        setLines([]);
+      }
+    }
+    initCart();
   }, []);
 
-  const updateQuantity = useCallback(
-    (slug: string, quantity: number) => {
-      if (quantity <= 0) {
-        removeFromCart(slug);
-        return;
+  const addToCart = useCallback(
+    async (product: Product, quantity = 1) => {
+      if (!cartId || !product.variantId) return;
+      setIsUpdating(true);
+      
+      const updatedCart = await shopifyAddToCart(cartId, product.variantId, quantity);
+      
+      if (updatedCart) {
+        setLines(updatedCart.lines.edges.map((e: any) => e.node));
+        setCheckoutUrl(updatedCart.checkoutUrl);
+        setIsCartOpen(true);
+        showToast(`${product.name} added to basket`);
       }
-      setLines((current) =>
-        current.map((line) => (line.slug === slug ? { ...line, quantity } : line))
-      );
+      setIsUpdating(false);
     },
-    [removeFromCart]
+    [cartId, showToast]
   );
 
-  const subtotal = useMemo(() => {
-    return lines.reduce((total, line) => {
-      const product = products.find((p) => p.slug === line.slug);
-      if (!product) return total;
-      return total + product.price * line.quantity;
-    }, 0);
-  }, [lines]);
+  const removeFromCart = useCallback(async (lineId: string) => {
+    if (!cartId) return;
+    setIsUpdating(true);
+    const updatedCart = await shopifyRemoveCartLine(cartId, lineId);
+    if (updatedCart) {
+      setLines(updatedCart.lines.edges.map((e: any) => e.node));
+      setCheckoutUrl(updatedCart.checkoutUrl);
+    }
+    setIsUpdating(false);
+  }, [cartId]);
 
-  const totalItems = useMemo(
-    () => lines.reduce((total, line) => total + line.quantity, 0),
-    [lines]
+  const updateQuantity = useCallback(
+    async (lineId: string, quantity: number) => {
+      if (!cartId) return;
+      if (quantity <= 0) {
+        return removeFromCart(lineId);
+      }
+      setIsUpdating(true);
+      const updatedCart = await shopifyUpdateCartLine(cartId, lineId, quantity);
+      if (updatedCart) {
+        setLines(updatedCart.lines.edges.map((e: any) => e.node));
+        setCheckoutUrl(updatedCart.checkoutUrl);
+      }
+      setIsUpdating(false);
+    },
+    [cartId, removeFromCart]
   );
+
+  const subtotal = lines.reduce((total, line) => {
+    return total + parseFloat(line.merchandise.product.priceRange.minVariantPrice.amount) * line.quantity;
+  }, 0);
+
+  const totalItems = lines.reduce((total, line) => total + line.quantity, 0);
 
   const value: CartContextValue = {
+    cartId,
+    checkoutUrl,
     lines,
     isCartOpen,
+    isUpdating,
     addToCart,
     removeFromCart,
     updateQuantity,

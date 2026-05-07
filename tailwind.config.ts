@@ -5,28 +5,28 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        /* ── Right Price Carpets Brand ────────── */
-        forest:        "#B91C1C", // Rich Red (Primary — Boro red)
-        "forest-light":"#DC2626", // Bright Red
-        moss:          "#991B1B", // Deep Red
-        wheat:         "#FCD34D", // Warm Gold (Secondary)
-        ivory:         "#FFFBEB", // Warm Cream
-        linen:         "#FEF3C7",
+        /* ── Emmy's Shop Brand ────────── */
+        forest:        "#D9777F", // Rose Pink (Primary)
+        "forest-light":"#E59CA2", // Light Rose
+        moss:          "#C06068", // Deep Rose
+        wheat:         "#A9C1B8", // Sage Green (Secondary)
+        ivory:         "#FAF7F5", // Soft Cream/Blush
+        linen:         "#F2EBE9", // Warm neutral
         cream:         "#FFFFFF",
-        charcoal:      "#1C1917", // Stone Dark
-        graphite:      "#292524",
-        taupe:         "#78716C",
-        bronze:        "#A16207", // Deep Gold
-        smoke:         "#E7E5E4",
+        charcoal:      "#2D3748", // Soft Black/Slate
+        graphite:      "#4A5568", // Gray
+        taupe:         "#A0AEC0",
+        bronze:        "#8E9A8E", // Muted Sage
+        smoke:         "#E2E8F0",
       },
       fontFamily: {
-        display: ["var(--font-display)", "sans-serif"],
+        display: ["var(--font-display)", "serif"], // Boutique feel
         body:    ["var(--font-body)", "sans-serif"],
       },
       boxShadow: {
-        showroom: "0 24px 70px rgba(185, 28, 28, 0.08)",
-        card:     "0 8px 30px rgba(185, 28, 28, 0.05)",
-        "card-hover": "0 16px 40px rgba(185, 28, 28, 0.1)",
+        showroom: "0 24px 70px rgba(217, 119, 127, 0.08)",
+        card:     "0 8px 30px rgba(217, 119, 127, 0.05)",
+        "card-hover": "0 16px 40px rgba(217, 119, 127, 0.1)",
       },
       borderRadius: {
         card: "12px",

@@ -1,5 +1,5 @@
 {
-  "name": "right-price-carpets-demo",
+  "name": "emmys-shop-demo",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,8 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@shopify/storefront-api-client": "^1.0.10",
     "clsx": "^2.1.1",
     "framer-motion": "^12.38.0",
+    "graphql": "^16.13.2",
     "lucide-react": "^1.11.0",
     "next": "^15.2.0",
     "react": "^18.3.1",

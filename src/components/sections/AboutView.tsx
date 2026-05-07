@@ -9,8 +9,8 @@ export function AboutView() {
     <main>
       <PageHero
         eyebrow="About the showroom"
-        title="A friendly family-run flooring business in Clay Cross with over 30 years experience."
-        body="This demo positions Right Price Carpets as a trusted local flooring specialist in Clay Cross, with an elevated digital experience that feels ready for modern retail."
+        title="A friendly family-run flooring business in Sheffield with over 30 years experience."
+        body="This demo positions Emmy's Shop as a trusted local furniture boutique in Sheffield, with an elevated digital experience that feels ready for modern retail."
         image={media.showroom}
       />
       <section className="bg-ivory px-4 py-20 sm:px-6 lg:px-8">

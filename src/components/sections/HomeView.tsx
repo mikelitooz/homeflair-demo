@@ -6,14 +6,16 @@ import { useCallback, useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, ShieldCheck, Sofa, Truck, CreditCard, Clock } from "lucide-react";
 import { ProductCard } from "@/components/ecommerce/ProductCard";
-import { categories, products, roomShop } from "@/data/ecommerce";
+import { Category, Product, roomShop } from "@/data/ecommerce";
 
-/* ── Data ───────────────────────────────────────── */
+/* ── Props ──────────────────────────────────────── */
 
-const trending = products.slice(0, 8);
-const newArrivals = products.filter((p) => p.newArrival).slice(0, 4);
-const bestSellers = products.filter((p) => p.bestSeller).slice(0, 4);
-const specialOffers = products.filter((p) => p.offer).slice(0, 4);
+type HomeViewProps = {
+  products: Product[];
+  categories: Category[];
+};
+
+/* ── Slider Variants ────────────────────────────── */
 
 const heroSlides = [
   {
@@ -21,8 +23,8 @@ const heroSlides = [
     alt: "Luxury carpet showroom display",
     tag: "30+ years experience",
     headline: "Quality carpets at the right price",
-    copy: "Over 30 rolls in stock from Cormar, Regency, Abingdon and more. Visit our Clay Cross showroom or call for a free measure.",
-    primaryCta: { label: "Shop all flooring", href: "/shop" },
+    copy: "Over 30 rolls in stock from Cormar, Regency, Abingdon and more. Visit our Sheffield showroom or call for a free measure.",
+    primaryCta: { label: "Shop all furniture", href: "/shop" },
     secondaryCta: { label: "View offers", href: "/shop?offer=true" },
   },
   {
@@ -71,7 +73,17 @@ const textVariants = {
 
 /* ── Component ──────────────────────────────────── */
 
-export function HomeView() {
+export function HomeView({ products, categories }: HomeViewProps) {
+  const trending = products.slice(0, 8);
+  let newArrivals = products.filter((p) => p.newArrival).slice(0, 4);
+  let bestSellers = products.filter((p) => p.bestSeller).slice(0, 4);
+  let specialOffers = products.filter((p) => p.offer).slice(0, 4);
+
+  // Fallback for demo/client data if tags are missing
+  if (newArrivals.length === 0 && products.length > 0) newArrivals = products.slice(0, 4);
+  if (bestSellers.length === 0 && products.length > 4) bestSellers = products.slice(4, 8);
+  if (specialOffers.length === 0 && products.length > 8) specialOffers = products.slice(8, 12);
+
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState(1);
 
@@ -277,16 +289,16 @@ export function HomeView() {
         <div className="relative overflow-hidden rounded-card bg-forest px-8 py-10 text-center md:py-12">
           <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=2000&q=30')] bg-cover bg-center opacity-15" />
           <div className="relative z-10">
-            <p className="text-xs font-bold uppercase tracking-widest text-wheat">Right Price Carpets</p>
+            <p className="text-xs font-bold uppercase tracking-widest text-wheat">Emmy's Shop</p>
             <h2 className="mt-2 font-display text-3xl font-bold text-white sm:text-4xl md:text-5xl">
-              Floor your whole home for less
+              Furnish your whole home with style
             </h2>
             <p className="mx-auto mt-3 max-w-lg text-sm leading-7 text-white/70">
               Mix categories and unlock bundle pricing. Carpets, laminate, LVT and vinyl — all under one roof.
             </p>
             <div className="mt-6 flex flex-wrap justify-center gap-3">
               <Link href="/shop" className="inline-flex items-center gap-2 rounded-lg bg-wheat px-6 py-3 text-sm font-bold text-forest transition-colors hover:bg-wheat/90">
-                <Sofa className="h-4 w-4" /> Shop all flooring
+                <Sofa className="h-4 w-4" /> Shop all furniture
               </Link>
               <Link href="/shop?offer=true" className="inline-flex items-center gap-2 rounded-lg border border-white/30 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10">
                 View offers
@@ -366,7 +378,7 @@ export function HomeView() {
             First access to new collections & offers
           </h3>
           <p className="mt-2 text-sm text-taupe">
-            Sign up for new stock alerts, flooring tips and seasonal sale updates from Right Price Carpets.
+            Sign up for new stock alerts, flooring tips and seasonal sale updates from Emmy's Shop.
           </p>
           <form className="mx-auto mt-6 flex max-w-md gap-2">
             <label htmlFor="newsletter" className="sr-only">Email address</label>

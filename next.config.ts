@@ -24,6 +24,11 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "www.loopnet.com",
         pathname: "/**"
+      },
+      {
+        protocol: "https",
+        hostname: "cdn.shopify.com",
+        pathname: "/**"
       }
     ]
   }

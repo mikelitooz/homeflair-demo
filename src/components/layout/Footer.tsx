@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Clock, Mail, MapPin, Phone, ShieldCheck, Truck } from "lucide-react";
-import { categories } from "@/data/ecommerce";
+import { type Category } from "@/data/ecommerce";
 import { business } from "@/data/site";
 
 const trustBadges = [
@@ -9,7 +9,7 @@ const trustBadges = [
   { icon: Clock, label: "Open 7 days a week" },
 ];
 
-export function Footer() {
+export function Footer({ categories = [] }: { categories: Category[] }) {
   return (
     <footer className="mt-14 bg-graphite text-ivory/70">
       {/* ── Trust badges ─────────────────────────── */}
@@ -29,11 +29,11 @@ export function Footer() {
         {/* Brand */}
         <div>
           <Link href="/" className="block">
-            <span className="font-display text-2xl font-bold text-white">Right Price</span>{" "}
+            <span className="font-display text-2xl font-bold text-white">Emmy's</span>{" "}
             <span className="font-display text-2xl font-light text-white">Home Interiors</span>
           </Link>
           <p className="mt-3 text-sm leading-7">
-            Quality carpets, laminate, LVT and flooring for Clay Cross and Teesside homes. Visit our Clay Cross showroom.
+            Handpicked furniture and home styling for Sheffield and Teesside homes. Visit our Sheffield showroom.
           </p>
           <div className="mt-4 space-y-1.5 text-sm">
             <p className="flex items-center gap-2">
@@ -89,7 +89,7 @@ export function Footer() {
 
       {/* ── Bottom bar ────────────────────────────── */}
       <div className="border-t border-white/10 px-4 py-4 text-center text-xs text-ivory/40 sm:px-6 lg:px-8">
-        <p>© {new Date().getFullYear()} Right Price Carpets. All rights reserved. 87 High St, Clay Cross, Chesterfield S45 9DZ.</p>
+        <p>© {new Date().getFullYear()} Emmy's Shop. All rights reserved. 3 Stubbin Ln, Sheffield S5 6QG.</p>
       </div>
     </footer>
   );

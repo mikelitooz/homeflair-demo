@@ -23,192 +23,183 @@ export type Product = {
   newArrival?: boolean;
   offer?: boolean;
   room: "Living Room" | "Bedroom" | "Dining Room" | "Home Office" | "Bathroom";
+  variantId?: string;
 };
 
 const media = {
-  carpetA: "https://images.unsplash.com/photo-1615874694520-474822394e73?auto=format&fit=crop&w=1500&q=85",
-  carpetB: "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=1500&q=85",
-  laminateA: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1500&q=85",
-  laminateB: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1500&q=85",
-  lvtA: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1500&q=85",
-  vinylA: "https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=1500&q=85",
-  grassA: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1500&q=85",
-  showroomA: "https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=1600&q=85"
+  sofaA: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1500&q=85",
+  sofaB: "https://images.unsplash.com/photo-1615874694520-474822394e73?auto=format&fit=crop&w=1500&q=85",
+  bedA: "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=1500&q=85",
+  diningA: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1500&q=85",
+  decorA: "https://images.unsplash.com/photo-1615874694520-474822394e73?auto=format&fit=crop&w=1500&q=85",
 };
 
 export const categories: Category[] = [
-  { slug: "carpets", name: "Carpets", description: "Over 30 rolls in stock from leading UK brands", heroImage: media.carpetA },
-  { slug: "laminate", name: "Laminate Flooring", description: "Supply and professional fitting available", heroImage: media.laminateA },
-  { slug: "lvt", name: "LVT Flooring", description: "Luxury vinyl tiles — waterproof and durable", heroImage: media.lvtA },
-  { slug: "artificial-grass", name: "Artificial Grass", description: "Low-maintenance grass for gardens and patios", heroImage: media.grassA },
+  { slug: "sofas", name: "Sofas & Armchairs", description: "Plush seating for your living room", heroImage: media.sofaA },
+  { slug: "beds", name: "Beds & Mattresses", description: "Restful luxury for the bedroom", heroImage: media.bedA },
+  { slug: "dining", name: "Dining Sets", description: "Elegant dining for entertaining", heroImage: media.diningA },
+  { slug: "decor", name: "Home Decor", description: "Beautiful accents to complete your room", heroImage: media.decorA },
 ];
 
 export const products: Product[] = [
   {
-    slug: "cormar-sensation-twist-carpet",
-    name: "Cormar Sensation Twist Carpet",
-    category: "carpets",
-    price: 18,
-    compareAtPrice: 24,
-    badge: "Best Seller",
-    shortDescription: "Hardwearing twist pile carpet in 12 colours.",
-    description: "A premium quality twist pile carpet from Cormar Carpets. Stain-resistant, bleach-cleanable, and ideal for high-traffic areas. Available in 4m and 5m widths.",
-    dimensions: "Price per sqm · 4m & 5m widths",
-    materials: "100% Polypropylene, Twist Pile",
-    delivery: "Supply & Fit Available",
-    images: [media.carpetA, media.showroomA],
+    slug: "blush-velvet-sofa",
+    name: "Emmy's Blush Velvet Sofa",
+    category: "sofas",
+    price: 699,
+    compareAtPrice: 899,
+    badge: "Boutique Exclusive",
+    shortDescription: "Elegant 3-seater sofa in blush pink velvet.",
+    description: "Our signature piece. Soft, luxurious blush velvet upholstery on a sturdy hardwood frame with brass-tipped wooden legs.",
+    dimensions: "W 210cm x D 90cm x H 85cm",
+    materials: "Premium Velvet, Hardwood Frame, Brass",
+    delivery: "White Glove Delivery",
+    images: [media.sofaA, media.sofaB],
     featured: true,
     bestSeller: true,
     offer: true,
     room: "Living Room"
   },
   {
-    slug: "regency-saxony-deep-pile",
-    name: "Regency Saxony Deep Pile Carpet",
-    category: "carpets",
-    price: 22,
-    shortDescription: "Luxurious deep saxony pile for bedrooms.",
-    description: "Incredibly soft underfoot. This Regency Carpets saxony pile creates a warm, cosy atmosphere in any bedroom or living room.",
-    dimensions: "Price per sqm · 4m width",
-    materials: "100% Polypropylene, Saxony Pile",
-    delivery: "Supply & Fit Available",
-    images: [media.carpetB, media.carpetA],
+    slug: "sage-green-armchair",
+    name: "Sage Green Reading Armchair",
+    category: "sofas",
+    price: 299,
+    shortDescription: "Comfortable accent chair in soft sage fabric.",
+    description: "The perfect reading chair. Features a deep seat, supportive back, and gorgeous sage green woven fabric.",
+    dimensions: "W 75cm x D 85cm x H 95cm",
+    materials: "Woven Polyester, Birch Wood",
+    delivery: "White Glove Delivery",
+    images: [media.sofaB, media.sofaA],
     featured: true,
+    room: "Living Room"
+  },
+  {
+    slug: "upholstered-ottoman-bed",
+    name: "Luxury Upholstered Ottoman Bed",
+    category: "beds",
+    price: 549,
+    compareAtPrice: 699,
+    shortDescription: "King size bed with hidden under-bed storage.",
+    description: "Combine style and practicality. A beautiful button-tufted headboard with a gas-lift base revealing vast storage space.",
+    dimensions: "King Size (W 155cm x L 210cm)",
+    materials: "Linen Blend, Steel Frame, Wood Slats",
+    delivery: "White Glove Delivery & Assembly",
+    images: [media.bedA, media.sofaB],
+    bestSeller: true,
+    offer: true,
     room: "Bedroom"
   },
   {
-    slug: "premium-oak-effect-laminate",
-    name: "Premium Oak Effect Laminate",
-    category: "laminate",
-    price: 16,
-    compareAtPrice: 21,
-    shortDescription: "Natural oak effect with click-lock fitting.",
-    description: "Realistic wood grain texture in a warm oak finish. AC4 rated for commercial and residential use. Quick and clean click-lock installation.",
-    dimensions: "Price per sqm · 1380mm x 193mm planks",
-    materials: "HDF Core, Melamine Wear Layer, AC4 Rated",
-    delivery: "Supply & Fit Available",
-    images: [media.laminateA, media.showroomA],
-    bestSeller: true,
-    offer: true,
-    room: "Living Room"
-  },
-  {
-    slug: "grey-slate-effect-laminate",
-    name: "Grey Slate Effect Laminate",
-    category: "laminate",
-    price: 19,
-    shortDescription: "Modern grey stone-look laminate flooring.",
-    description: "Achieve a contemporary stone floor look without the cold. Water-resistant top layer makes it suitable for kitchens and hallways.",
-    dimensions: "Price per sqm · 1380mm x 327mm tiles",
-    materials: "HDF Core, Water-Resistant Surface, AC4 Rated",
-    delivery: "Supply & Fit Available",
-    images: [media.laminateB, media.laminateA],
+    slug: "scandi-oak-dining-table",
+    name: "Scandi Oak Dining Table",
+    category: "dining",
+    price: 450,
+    shortDescription: "Minimalist solid oak dining table seats 6.",
+    description: "Clean lines and natural wood grain make this table a stunning centerpiece for modern dining rooms.",
+    dimensions: "L 180cm x W 90cm x H 75cm",
+    materials: "Solid Oak, Oak Veneer",
+    delivery: "White Glove Delivery & Assembly",
+    images: [media.diningA, media.decorA],
     newArrival: true,
     room: "Dining Room"
   },
   {
-    slug: "herringbone-lvt-flooring",
-    name: "Herringbone LVT Flooring",
-    category: "lvt",
-    price: 28,
-    shortDescription: "Classic herringbone pattern luxury vinyl tile.",
-    description: "Achieve the stunning herringbone look at a fraction of the cost of real wood. 100% waterproof, pet-friendly, and incredibly easy to maintain.",
-    dimensions: "Price per sqm · 600mm x 100mm planks",
-    materials: "Rigid Core LVT, 0.5mm Wear Layer",
-    delivery: "Supply & Fit Available",
-    images: [media.lvtA, media.laminateA],
+    slug: "velvet-dining-chairs",
+    name: "Set of 2 Velvet Dining Chairs",
+    category: "dining",
+    price: 180,
+    shortDescription: "Curved back dining chairs in midnight blue.",
+    description: "Dine in comfort and style. Soft velvet upholstery over a padded bucket seat on sleek black metal legs.",
+    dimensions: "W 50cm x D 55cm x H 82cm",
+    materials: "Velvet, Powder-Coated Steel",
+    delivery: "Standard Delivery",
+    images: [media.diningA, media.sofaA],
     featured: true,
     bestSeller: true,
-    room: "Living Room"
-  },
-  {
-    slug: "natural-stone-effect-lvt",
-    name: "Natural Stone Effect LVT",
-    category: "lvt",
-    price: 25,
-    shortDescription: "Warm stone-look luxury vinyl tile flooring.",
-    description: "Authentic stone visuals with the warmth and comfort of LVT. Perfect for open-plan living areas, kitchens, and conservatories.",
-    dimensions: "Price per sqm · 610mm x 305mm tiles",
-    materials: "Rigid Core LVT, 0.3mm Wear Layer",
-    delivery: "Supply & Fit Available",
-    images: [media.lvtA, media.showroomA],
     room: "Dining Room"
   },
   {
-    slug: "premium-artificial-grass-30mm",
-    name: "Premium Artificial Grass 30mm",
-    category: "artificial-grass",
-    price: 15,
-    compareAtPrice: 19,
-    shortDescription: "Realistic 30mm pile artificial lawn grass.",
-    description: "UV stabilised for fade resistance. Drains quickly and stays green all year round. Ideal for gardens, play areas, and balconies.",
-    dimensions: "Price per sqm · 2m & 4m widths",
-    materials: "PE Monofilament, PP Curled, Latex Backing",
-    delivery: "Collection or Delivery",
-    images: [media.grassA, media.showroomA],
+    slug: "boucle-accent-stool",
+    name: "Bouclé Accent Stool",
+    category: "decor",
+    price: 85,
+    shortDescription: "Trendy textured bouclé fabric vanity stool.",
+    description: "A chic addition to any bedroom or living space. Features highly textured, soft bouclé fabric in warm cream.",
+    dimensions: "Diameter 40cm x H 45cm",
+    materials: "Bouclé Fabric, Foam, Wood",
+    delivery: "Standard Delivery",
+    images: [media.decorA, media.bedA],
+    room: "Bedroom"
+  },
+  {
+    slug: "brass-floor-lamp",
+    name: "Arching Brass Floor Lamp",
+    category: "decor",
+    price: 120,
+    compareAtPrice: 150,
+    shortDescription: "Elegant brushed brass reading lamp.",
+    description: "Provide a warm glow to your living space. Heavy marble base ensures stability, with a sweeping brass arc.",
+    dimensions: "H 160cm x Reach 80cm",
+    materials: "Brushed Brass, Marble",
+    delivery: "Standard Delivery",
+    images: [media.decorA, media.sofaA],
     offer: true,
     newArrival: true,
     room: "Living Room"
   },
   {
-    slug: "abingdon-stainfree-twist",
-    name: "Abingdon Stainfree Twist Carpet",
-    category: "carpets",
-    price: 14,
-    shortDescription: "Budget-friendly bleach-cleanable twist carpet.",
-    description: "The ideal carpet for busy households. Stain-free technology means spills wipe away easily. Available in a wide range of neutral and bold colours.",
-    dimensions: "Price per sqm · 4m width",
-    materials: "100% Polypropylene, Bleach Cleanable",
-    delivery: "Supply & Fit Available",
-    images: [media.carpetA, media.carpetB],
+    slug: "rattan-wardrobe",
+    name: "Boho Rattan Double Wardrobe",
+    category: "beds",
+    price: 650,
+    shortDescription: "Solid wood wardrobe with natural rattan panels.",
+    description: "Bring a relaxed, bohemian feel to your bedroom. Features a hanging rail, bottom drawer, and beautifully woven rattan doors.",
+    dimensions: "W 100cm x D 55cm x H 190cm",
+    materials: "Mango Wood, Natural Rattan",
+    delivery: "White Glove Delivery & Assembly",
+    images: [media.bedA, media.decorA],
     room: "Bedroom"
-  },
-  {
-    slug: "cushion-floor-vinyl",
-    name: "Cushion Floor Vinyl",
-    category: "lvt",
-    price: 10,
-    compareAtPrice: 14,
-    shortDescription: "Soft-step cushioned vinyl in tile & wood effects.",
-    description: "Comfortable, warm, and water-resistant. Perfect for bathrooms, kitchens, and utility rooms. Easy to clean and maintain.",
-    dimensions: "Price per sqm · 2m, 3m & 4m widths",
-    materials: "PVC, Foam Backing, Non-Slip Surface",
-    delivery: "Supply & Fit Available",
-    images: [media.vinylA, media.lvtA],
-    offer: true,
-    room: "Bathroom"
   }
 ];
 
 export const promoBanners = [
-  "Quality carpets & flooring at unbeatable prices in Clay Cross",
-  "Over 30 rolls of carpet in stock — call in today!",
-  "Snap finance available — spread the cost of your new floor",
-  "Free measuring service — book your home visit now",
+  "Welcome to Emmy's Shop – Sheffield's boutique furniture store",
+  "Enjoy White Glove Delivery on all large furniture pieces",
+  "Visit our Stubbin Lane showroom to see our new collections",
+  "New Arrivals: Blush velvet and sage green accents now in stock",
 ];
 
 export const roomShop = [
-  { name: "Carpets", image: media.carpetA, href: "/shop?category=carpets" },
-  { name: "Laminate Flooring", image: media.laminateA, href: "/shop?category=laminate" },
-  { name: "LVT Flooring", image: media.lvtA, href: "/shop?category=lvt" }
+  { name: "Living Room", image: media.sofaA, href: "/shop?category=sofas" },
+  { name: "Bedroom", image: media.bedA, href: "/shop?category=beds" },
+  { name: "Dining Room", image: media.diningA, href: "/shop?category=dining" }
 ];
 
 export function currency(value: number): string {
   return new Intl.NumberFormat("en-GB", { style: "currency", currency: "GBP", maximumFractionDigits: 0 }).format(value);
 }
 
-export function getCategoryBySlug(slug: string): Category | undefined {
+export async function getProducts(): Promise<Product[]> {
+  return products;
+}
+
+export async function getCategories(): Promise<Category[]> {
+  return categories;
+}
+
+export async function getCategoryBySlug(slug: string): Promise<Category | undefined> {
   return categories.find((category) => category.slug === slug);
 }
 
-export function getProductBySlug(slug: string): Product | undefined {
+export async function getProductBySlug(slug: string): Promise<Product | undefined> {
   return products.find((product) => product.slug === slug);
 }
 
-export function getProductsByCategory(categorySlug: string): Product[] {
+export async function getProductsByCategory(categorySlug: string): Promise<Product[]> {
   return products.filter((product) => product.category === categorySlug);
 }
 
-export function getRelatedProducts(product: Product): Product[] {
+export async function getRelatedProducts(product: Product): Promise<Product[]> {
   return products.filter((item) => item.category === product.category && item.slug !== product.slug).slice(0, 4);
 }

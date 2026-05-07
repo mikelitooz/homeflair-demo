@@ -2,10 +2,12 @@
 
 import { useMemo, useState } from "react";
 import { SlidersHorizontal, SearchX } from "lucide-react";
-import { categories, Product, products } from "@/data/ecommerce";
+import { Category, Product } from "@/data/ecommerce";
 import { ProductCard } from "@/components/ecommerce/ProductCard";
 
 type ShopViewProps = {
+  products: Product[];
+  categories: Category[];
   initialQuery?: string;
   initialCategory?: string;
   initialRoom?: string;
@@ -13,6 +15,8 @@ type ShopViewProps = {
 };
 
 export function ShopView({
+  products,
+  categories,
   initialQuery = "",
   initialCategory = "all",
   initialRoom = "all",
@@ -62,8 +66,8 @@ export function ShopView({
       </h1>
       <p className="mt-2 text-sm text-taupe">
         {offerOnly
-          ? "Handpicked offers on carpets, laminate, LVT and vinyl from Right Price Carpets."
-          : "Browse carpets, laminate, LVT, vinyl and more from Right Price Carpets."}
+          ? "Handpicked offers on sofas, beds, dining sets and decor from Emmy's Shop."
+          : "Browse carpets, laminate, LVT, vinyl and more from Emmy's Shop."}
       </p>
 
       {/* ── Filter panel ─────────────────────────── */}

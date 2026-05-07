@@ -22,27 +22,30 @@ const body = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL("https://right-price-carpets-demo.vercel.app"),
   title: {
-    default: "Right Price Carpets | Carpets & Flooring for Clay Cross",
-    template: "%s | Right Price Carpets",
+    default: "Emmy's Shop | Boutique Furniture for Sheffield",
+    template: "%s | Emmy's Shop",
   },
   description:
-    "Quality carpets, laminate, LVT flooring and artificial grass for Clay Cross and Teesside homes. Visit our Clay Cross showroom or shop online.",
+    "Handpicked sofas, beds, dining sets and home decor for Sheffield and Teesside homes. Visit our Sheffield showroom or shop online.",
   openGraph: {
-    title: "Right Price Carpets | Carpets & Flooring for Clay Cross",
+    title: "Emmy's Shop | Boutique Furniture for Sheffield",
     description:
-      "Browse carpets, laminate, LVT, vinyl and artificial grass. Quality flooring for Teesside homes.",
+      "Browse boutique furniture, sofas, beds, and home styling. Quality flooring for Teesside homes.",
     type: "website",
   },
 };
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+import { getCategories } from "@/data/ecommerce";
+
+export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  const categories = await getCategories();
   return (
     <html lang="en-GB" className={`${display.variable} ${body.variable}`}>
       <body className="font-body antialiased">
         <CartProvider>
-          <Header />
+          <Header categories={categories} />
           {children}
-          <Footer />
+          <Footer categories={categories} />
           <CartDrawer />
           <Toast />
         </CartProvider>
