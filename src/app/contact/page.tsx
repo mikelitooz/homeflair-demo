@@ -3,7 +3,7 @@ import { ContactView } from "@/components/sections/ContactView";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: "Contact Emmy's Shop, view opening hours and plan a showroom visit in Sheffield."
+  description: "Contact Homeflair, view opening hours and plan a visit to our Rotherham showroom."
 };
 
 export default function ContactPage() {

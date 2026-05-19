@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
   return {
     title: category.name,
-    description: `Shop ${category.name.toLowerCase()} from Emmy's Shop.`
+    description: `Shop ${category.name.toLowerCase()} from Homeflair.`
   };
 }
 

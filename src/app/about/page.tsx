@@ -3,7 +3,7 @@ import { AboutView } from "@/components/sections/AboutView";
 
 export const metadata: Metadata = {
   title: "About",
-  description: "Learn about Emmy's Shop, a family-run flooring business in Sheffield."
+  description: "Learn about Homeflair, a family-run furniture retailer in Rotherham since 1972."
 };
 
 export default function AboutPage() {

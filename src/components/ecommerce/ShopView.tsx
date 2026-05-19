@@ -66,8 +66,8 @@ export function ShopView({
       </h1>
       <p className="mt-2 text-sm text-taupe">
         {offerOnly
-          ? "Handpicked offers on sofas, beds, dining sets and decor from Emmy's Shop."
-          : "Browse sofas, beds, dining, decor and more from Emmy's Shop."}
+          ? "Handpicked offers on sofas, leather suites and garden furniture from Homeflair."
+          : "Browse fabric sofas, leather suites, garden furniture and more from Homeflair."}
       </p>
 
       {/* ── Filter panel ─────────────────────────── */}

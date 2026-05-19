@@ -20,17 +20,17 @@ const body = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://emmys-shop-demo.vercel.app"),
+  metadataBase: new URL("https://homeflair-demo.vercel.app"),
   title: {
-    default: "Emmy's Shop | Boutique Furniture for Sheffield",
-    template: "%s | Emmy's Shop",
+    default: "Homeflair | Quality Furniture Since 1972 – Rotherham",
+    template: "%s | Homeflair",
   },
   description:
-    "Handpicked sofas, beds, dining sets and home decor for Sheffield and Teesside homes. Visit our Sheffield showroom or shop online.",
+    "Fabric sofas, leather suites, rattan garden furniture and ex-display deals. Visit our Rotherham showroom or shop online. Family-run since 1972.",
   openGraph: {
-    title: "Emmy's Shop | Boutique Furniture for Sheffield",
+    title: "Homeflair | Quality Furniture Since 1972 – Rotherham",
     description:
-      "Browse boutique furniture, sofas, beds, and home styling. Quality flooring for Teesside homes.",
+      "Premium sofas, leather suites and exclusive rattan garden furniture from a trusted family retailer. Visit our Parkgate showroom in Rotherham.",
     type: "website",
   },
 };

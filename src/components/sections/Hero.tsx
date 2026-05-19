@@ -24,14 +24,14 @@ export function Hero() {
             <div>
               <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-semibold backdrop-blur">
                 <Star className="h-4 w-4 fill-bronze text-bronze" />
-                {business.rating} rated Sheffield furniture boutique
+                {business.rating} rated Rotherham furniture showroom
               </div>
               <h1 className="max-w-4xl font-display text-6xl font-semibold leading-[0.9] text-balance md:text-8xl">
-                Beautiful furniture for homes that feel complete.
+                Quality furniture for homes that feel complete.
               </h1>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-pretty text-ivory/80">
-                Sofas, beds, wardrobes, dining sets and home essentials from a local Stubbin Lane showroom
-                with friendly advice, delivery and assembly support.
+                Fabric sofas, leather suites, rattan garden furniture and ex-display deals from our Parkgate showroom
+                with speedy delivery, friendly advice and no-pressure sales.
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <Button href="/collection" variant="light">

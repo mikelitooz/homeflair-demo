@@ -5,28 +5,28 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        /* ── Emmy's Shop – Charcoal Gray & Soft Cream ── */
-        forest:        "#3A3A3A", // Charcoal (Primary)
-        "forest-light":"#555555", // Medium Gray
-        moss:          "#2A2A2A", // Deep Charcoal
-        wheat:         "#D4C5A9", // Soft Cream/Warm Sand (Secondary)
-        ivory:         "#FAFAF7", // Off-White
-        linen:         "#F3F1EC", // Natural Linen
+        /* ── Homeflair – Est. 1972 ── */
+        forest:        "#1A1A1A", // Near-Black (Primary Dark)
+        "forest-light":"#2E2E2E", // Soft Charcoal
+        moss:          "#111111", // Deep Black
+        wheat:         "#C5A880", // Champagne Gold (Signature Accent)
+        ivory:         "#FAFAF8", // Off-White Canvas
+        linen:         "#F5F3EF", // Warm Linen
         cream:         "#FFFFFF",
-        charcoal:      "#1E1E1E", // Near Black
-        graphite:      "#6B6B6B", // Mid Gray
-        taupe:         "#9E9E9E", // Warm Gray
-        bronze:        "#BBA978", // Warm Sand Accent
-        smoke:         "#EAEAE6", // Light Warm Gray
+        charcoal:      "#0D0D0D", // True Black
+        graphite:      "#5C5C5C", // Mid Gray
+        taupe:         "#8A8072", // Warm Taupe
+        bronze:        "#D01B22", // Crimson Red (Highlight)
+        smoke:         "#EDECE8", // Light Warm Gray
       },
       fontFamily: {
         display: ["var(--font-display)", "serif"],
         body:    ["var(--font-body)", "sans-serif"],
       },
       boxShadow: {
-        showroom: "0 24px 70px rgba(58, 58, 58, 0.06)",
-        card:     "0 8px 30px rgba(58, 58, 58, 0.04)",
-        "card-hover": "0 16px 40px rgba(212, 197, 169, 0.15)",
+        showroom: "0 24px 70px rgba(26, 26, 26, 0.08)",
+        card:     "0 8px 30px rgba(26, 26, 26, 0.05)",
+        "card-hover": "0 16px 40px rgba(197, 168, 128, 0.18)",
       },
       borderRadius: {
         card: "12px",

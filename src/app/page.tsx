@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { HomeView } from "@/components/sections/HomeView";
 
 export const metadata: Metadata = {
-  title: "Emmy's Shop | Quality Boutique Furniture Sheffield",
+  title: "Homeflair | Quality Furniture Since 1972 – Rotherham",
   description:
-    "Explore sofas, beds, wardrobes, dining furniture and home styling from a polished demo website for Emmy's Shop."
+    "Explore fabric sofas, leather suites, rattan garden furniture and ex-display deals from Homeflair – a family-run showroom in Rotherham since 1972."
 };
 
 import { getProducts, getCategories } from "@/data/ecommerce";

@@ -9,8 +9,8 @@ export function AboutView() {
     <main>
       <PageHero
         eyebrow="About the showroom"
-        title="A friendly family-run flooring business in Sheffield with over 30 years experience."
-        body="This demo positions Emmy's Shop as a trusted local furniture boutique in Sheffield, with an elevated digital experience that feels ready for modern retail."
+        title="A friendly family-run furniture business in Rotherham since 1972."
+        body="Homeflair is a trusted local furniture retailer with over 50 years of experience, offering quality sofas, leather suites and exclusive rattan garden furniture."
         image={media.showroom}
       />
       <section className="bg-ivory px-4 py-20 sm:px-6 lg:px-8">

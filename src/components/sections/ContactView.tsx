@@ -9,7 +9,7 @@ export function ContactView() {
     <main>
       <PageHero
         eyebrow="Contact"
-        title="Visit the showroom or ask about a room."
+        title="Visit our showroom or get in touch."
         body="A conversion-focused contact page with business hours, enquiry form, location section and a map placeholder ready for a Google Maps embed."
         image={media.carpet}
       />
@@ -18,8 +18,8 @@ export function ContactView() {
           <div>
             <SectionHeading
               eyebrow="Showroom details"
-              title="Stubbin Lane, Sheffield."
-              body="Use this section to drive phone calls, map taps and high-intent showroom visits."
+              title="Parkgate, Rotherham."
+              body="Visit our showroom to try before you buy. No-pressure sales, friendly staff."
             />
             <div className="mt-8 grid gap-4">
               {contactCards.map((card) => {

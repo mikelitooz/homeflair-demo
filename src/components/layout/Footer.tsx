@@ -4,8 +4,8 @@ import { type Category } from "@/data/ecommerce";
 import { business } from "@/data/site";
 
 const trustBadges = [
-  { icon: ShieldCheck, label: "Quality craftsmanship guaranteed" },
-  { icon: Truck, label: "Free measuring service on selected lines" },
+  { icon: ShieldCheck, label: "Quality craftsmanship since 1972" },
+  { icon: Truck, label: "Speedy delivery with booked time slots" },
   { icon: Clock, label: "Open 7 days a week" },
 ];
 
@@ -29,11 +29,11 @@ export function Footer({ categories = [] }: { categories: Category[] }) {
         {/* Brand */}
         <div>
           <Link href="/" className="block">
-            <span className="font-display text-2xl font-bold text-white">Emmy's</span>{" "}
-            <span className="font-display text-2xl font-light text-white">Home Interiors</span>
+            <span className="font-display text-2xl font-bold text-white">Home</span>{" "}
+            <span className="font-display text-2xl font-light text-white">flair</span>
           </Link>
           <p className="mt-3 text-sm leading-7">
-            Handpicked furniture and home styling for Sheffield and Teesside homes. Visit our Sheffield showroom.
+            Premium sofas, leather suites and exclusive rattan garden furniture from a trusted family retailer since 1972. Visit our Rotherham showroom.
           </p>
           <div className="mt-4 space-y-1.5 text-sm">
             <p className="flex items-center gap-2">
@@ -89,7 +89,7 @@ export function Footer({ categories = [] }: { categories: Category[] }) {
 
       {/* ── Bottom bar ────────────────────────────── */}
       <div className="border-t border-white/10 px-4 py-4 text-center text-xs text-ivory/40 sm:px-6 lg:px-8">
-        <p>© {new Date().getFullYear()} Emmy's Shop. All rights reserved. 3 Stubbin Ln, Sheffield S5 6QG.</p>
+        <p>© {new Date().getFullYear()} Homeflair. All rights reserved. Parkgate Complex, Rawmarsh Rd, Rotherham S60 1RZ.</p>
       </div>
     </footer>
   );
