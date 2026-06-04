@@ -3,14 +3,15 @@
 @tailwind utilities;
 
 /* ── Brand CSS Variables ──────────────────────── */
+/* Mr Slators Furnishings – Navy & Orange palette  */
 :root {
-  --background: #F8F5EF;
-  --foreground: #1A1A18;
-  --forest:     #1B3A2D;
-  --forest-light: #2A5144;
-  --wheat:      #E8D5B5;
-  --bronze:     #A47652;
-  --smoke:      #D8D0C3;
+  --background:   #FAF9F6;
+  --foreground:   #121212;
+  --forest:       #1C2B5E; /* Navy Blue  */
+  --forest-light: #2A3F80; /* Lighter Navy */
+  --wheat:        #E8732A; /* Burnt Orange */
+  --bronze:       #C05A1A; /* Deep Orange */
+  --smoke:        #E4E2DE; /* Light Gray */
 }
 
 /* ── Base ─────────────────────────────────────── */
@@ -33,7 +34,7 @@ body {
 
 ::selection {
   background: var(--forest);
-  color: #F8F5EF;
+  color: #FAF9F6;
 }
 
 /* ── Focus Ring ───────────────────────────────── */

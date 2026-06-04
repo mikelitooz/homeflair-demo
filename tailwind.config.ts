@@ -5,28 +5,29 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        /* ── Mr Slators Furnishings – Navy, Gold & Burgundy ── */
-        forest:        "#101D36", // Deep Navy Blue (Primary Dark)
-        "forest-light":"#1C325B", // Medium Navy Blue
-        moss:          "#080F1D", // Deepest Dark Navy
-        wheat:         "#D4AF37", // Gold / Warm Yellow (Secondary Accent)
-        ivory:         "#FAF9F6", // Off-White Canvas
-        linen:         "#F1EFEA", // Warm Linen
-        cream:         "#FFFFFF",
-        charcoal:      "#121212", // Near Black
-        graphite:      "#555555", // Mid Gray
-        taupe:         "#8B8B99", // Warm Muted Gray
-        bronze:        "#8A1528", // Burgundy Red (Highlight Accent)
-        smoke:         "#E8E6E1", // Light Warm Gray
+        /* ── Mr Slators Furnishings – Real Storefront Colours ── */
+        /* Source: Actual shopfront signage photo                  */
+        forest:        "#1C2B5E", // Deep Navy Blue  (sign text & wordmark)
+        "forest-light":"#2A3F80", // Medium Navy     (hover states)
+        moss:          "#111A3A", // Darkest Navy    (deep backgrounds)
+        wheat:         "#E8732A", // Burnt Orange    (bullet dots & logo badge)
+        ivory:         "#FAF9F6", // Off-White       (canvas / page bg)
+        linen:         "#F2F0EC", // Warm Linen      (section backgrounds)
+        cream:         "#FFFFFF", // Pure White      (sign fascia)
+        charcoal:      "#121212", // Near Black      (body text)
+        graphite:      "#4A4A55", // Mid Gray        (nav bars)
+        taupe:         "#8B8B99", // Muted Gray      (secondary text)
+        bronze:        "#C05A1A", // Deep Orange     (darker accent / pressed state)
+        smoke:         "#E4E2DE", // Light Gray      (borders & dividers)
       },
       fontFamily: {
         display: ["var(--font-display)", "serif"],
         body:    ["var(--font-body)", "sans-serif"],
       },
       boxShadow: {
-        showroom: "0 24px 70px rgba(16, 29, 54, 0.08)",
-        card:     "0 8px 30px rgba(16, 29, 54, 0.05)",
-        "card-hover": "0 16px 40px rgba(212, 175, 55, 0.18)",
+        showroom:    "0 24px 70px rgba(28, 43, 94, 0.08)",
+        card:        "0 8px 30px rgba(28, 43, 94, 0.05)",
+        "card-hover":"0 16px 40px rgba(232, 115, 42, 0.18)",
       },
       borderRadius: {
         card: "12px",
