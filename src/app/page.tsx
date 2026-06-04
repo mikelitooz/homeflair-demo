@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { HomeView } from "@/components/sections/HomeView";
 
 export const metadata: Metadata = {
-  title: "Homeflair | Quality Furniture Since 1972 – Rotherham",
+  title: "Mr Slators Furnishings | Quality Furniture & Carpets Since 1970 – Sheffield",
   description:
-    "Explore fabric sofas, leather suites, rattan garden furniture and ex-display deals from Homeflair – a family-run showroom in Rotherham since 1972."
+    "Explore sleigh beds, mattresses, suites, solid pine furniture, and fitted carpets from Mr Slators Furnishings – a family-run showroom in Sheffield since 1970."
 };
 
 import { getProducts, getCategories } from "@/data/ecommerce";

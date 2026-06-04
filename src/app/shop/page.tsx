@@ -15,7 +15,7 @@ type Props = {
 
 export const metadata: Metadata = {
   title: "Shop",
-  description: "Browse Homeflair products by category, room, and offers."
+  description: "Browse Mr Slators Furnishings products by category, room, and offers."
 };
 
 export default async function ShopPage({ searchParams }: Props) {

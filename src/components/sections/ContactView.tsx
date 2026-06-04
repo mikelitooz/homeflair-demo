@@ -18,7 +18,7 @@ export function ContactView() {
           <div>
             <SectionHeading
               eyebrow="Showroom details"
-              title="Parkgate, Rotherham."
+              title="Infirmary Road, Sheffield."
               body="Visit our showroom to try before you buy. No-pressure sales, friendly staff."
             />
             <div className="mt-8 grid gap-4">

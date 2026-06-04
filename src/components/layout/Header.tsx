@@ -81,11 +81,11 @@ export function Header({ categories = [] }: { categories: Category[] }) {
 
           {/* Logo */}
           <Link href="/" className="hidden lg:flex items-center gap-2">
-            <span className="font-display text-3xl font-bold tracking-tight text-forest">Home</span>
-            <span className="font-display text-3xl font-light tracking-tight text-forest">flair</span>
+            <span className="font-display text-3xl font-bold tracking-tight text-forest">Slators</span>
+            <span className="font-display text-3xl font-light tracking-tight text-forest">Furniture</span>
           </Link>
           <Link href="/" className="lg:hidden">
-            <span className="font-display text-2xl font-bold tracking-tight text-forest">Homeflair</span>
+            <span className="font-display text-2xl font-bold tracking-tight text-forest">Slators Furniture</span>
           </Link>
 
           {/* Search */}
@@ -176,7 +176,7 @@ export function Header({ categories = [] }: { categories: Category[] }) {
           <div className="px-4 py-4">
             <div className="mb-4 flex items-center gap-2 rounded-lg bg-cream px-3 py-2.5 text-sm text-taupe">
               <Truck className="h-4 w-4 text-forest" />
-              Speedy delivery across the UK
+              Friendly delivery across South Yorkshire
             </div>
             <div className="grid gap-0.5">
               <Link href="/shop" onClick={() => setMobileOpen(false)} className="flex items-center justify-between rounded-lg px-3 py-3 font-semibold text-charcoal hover:bg-cream transition-colors">
@@ -197,7 +197,7 @@ export function Header({ categories = [] }: { categories: Category[] }) {
                 <ShoppingBasket className="h-4 w-4" /> Basket ({totalItems})
               </Link>
               <Link href="/contact" onClick={() => setMobileOpen(false)} className="flex items-center gap-2 rounded-lg px-3 py-2.5 text-sm text-taupe hover:bg-cream transition-colors">
-                <MapPin className="h-4 w-4" /> Visit our Rotherham showroom
+                <MapPin className="h-4 w-4" /> Visit our Sheffield showroom
               </Link>
             </div>
           </div>

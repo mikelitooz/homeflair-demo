@@ -66,8 +66,8 @@ export function ShopView({
       </h1>
       <p className="mt-2 text-sm text-taupe">
         {offerOnly
-          ? "Handpicked offers on sofas, leather suites and garden furniture from Homeflair."
-          : "Browse fabric sofas, leather suites, garden furniture and more from Homeflair."}
+          ? "Handpicked offers on beds, mattresses, suites, and solid pine furniture from Mr Slators Furnishings."
+          : "Browse beds, mattresses, suites, solid pine furniture, fitted carpets, and more from Mr Slators Furnishings."}
       </p>
 
       {/* ── Filter panel ─────────────────────────── */}

@@ -9,8 +9,8 @@ export function AboutView() {
     <main>
       <PageHero
         eyebrow="About the showroom"
-        title="A friendly family-run furniture business in Rotherham since 1972."
-        body="Homeflair is a trusted local furniture retailer with over 50 years of experience, offering quality sofas, leather suites and exclusive rattan garden furniture."
+        title="A friendly family-run furniture business in Sheffield since 1970."
+        body="Mr Slators Furnishings is a trusted local furniture & carpets retailer with over 50 years of experience, offering quality beds, suites, solid pine furniture, and carpets."
         image={media.showroom}
       />
       <section className="bg-ivory px-4 py-20 sm:px-6 lg:px-8">

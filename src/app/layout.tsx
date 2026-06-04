@@ -20,17 +20,17 @@ const body = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://homeflair-demo.vercel.app"),
+  metadataBase: new URL("https://mrslators-demo.vercel.app"),
   title: {
-    default: "Homeflair | Quality Furniture Since 1972 – Rotherham",
-    template: "%s | Homeflair",
+    default: "Mr Slators Furnishings | Quality Furniture & Carpets Since 1970 – Sheffield",
+    template: "%s | Mr Slators Furnishings",
   },
   description:
-    "Fabric sofas, leather suites, rattan garden furniture and ex-display deals. Visit our Rotherham showroom or shop online. Family-run since 1972.",
+    "Beds, suites, solid pine furniture, carpets, and occasional items. Visit our Sheffield showroom or shop online. Family-run since 1970.",
   openGraph: {
-    title: "Homeflair | Quality Furniture Since 1972 – Rotherham",
+    title: "Mr Slators Furnishings | Quality Furniture & Carpets Since 1970 – Sheffield",
     description:
-      "Premium sofas, leather suites and exclusive rattan garden furniture from a trusted family retailer. Visit our Parkgate showroom in Rotherham.",
+      "Beds, suites, solid pine furniture, and carpets from a trusted family retailer. Visit our Infirmary Road showroom in Sheffield.",
     type: "website",
   },
 };

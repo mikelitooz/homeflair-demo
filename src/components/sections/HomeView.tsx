@@ -21,29 +21,29 @@ const heroSlides = [
   {
     image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=2000&q=85",
     alt: "Luxury fabric sofa showroom display",
-    tag: "Family-run since 1972",
+    tag: "Family-run since 1970",
     headline: "Quality furniture for every home",
-    copy: "Fabric sofas, leather suites and rattan garden furniture. Visit our Rotherham showroom or shop online with speedy delivery.",
+    copy: "Beds, mattresses, suites, solid pine furniture, and carpets. Visit our Sheffield showroom or shop online with friendly delivery.",
     primaryCta: { label: "Shop all furniture", href: "/shop" },
     secondaryCta: { label: "View offers", href: "/shop?offer=true" },
   },
   {
-    image: "https://images.unsplash.com/photo-1567016432779-094069958ea5?auto=format&fit=crop&w=2000&q=85",
-    alt: "Italian leather sofa in a modern living room",
-    tag: "Italian design",
-    headline: "Leather suites from Newtrend Concepts",
-    copy: "Premium Italian leather sofas with electric recliners, adjustable headrests and power USB charging.",
-    primaryCta: { label: "Shop leather", href: "/category/leather-sofas" },
+    image: "https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=2000&q=85",
+    alt: "Luxury sleigh bed showroom display",
+    tag: "Showroom Specialist",
+    headline: "Luxury Beds & Mattresses",
+    copy: "Complete range of sleigh beds, divans, mattresses, and solid pine bedroom wardrobes.",
+    primaryCta: { label: "Shop Bedroom", href: "/category/beds-bedroom" },
     secondaryCta: { label: "Shop all", href: "/shop" },
   },
   {
-    image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2000&q=85",
-    alt: "Rattan garden furniture set on patio",
-    tag: "Homeflair exclusive",
-    headline: "Exclusive rattan garden furniture",
-    copy: "UV-resistant, shower-proof outdoor dining sets, firepit tables and loungers built to last.",
-    primaryCta: { label: "Shop garden", href: "/category/garden" },
-    secondaryCta: { label: "Ex-display deals", href: "/category/ex-display" },
+    image: "https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?auto=format&fit=crop&w=2000&q=85",
+    alt: "Traditional high-seat armchair and fabric sofa",
+    tag: "Carpets & Seating",
+    headline: "Suites & Fitted Carpets",
+    copy: "High-seat armchairs, comfortable sofas, and premium Saxony fitted carpets measured to fit.",
+    primaryCta: { label: "Shop Carpets", href: "/category/carpets-flooring" },
+    secondaryCta: { label: "View Seating", href: "/category/sofas-living" },
   },
 ];
 
@@ -289,12 +289,12 @@ export function HomeView({ products, categories }: HomeViewProps) {
         <div className="relative overflow-hidden rounded-card bg-forest px-8 py-10 text-center md:py-12">
           <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=2000&q=30')] bg-cover bg-center opacity-15" />
           <div className="relative z-10">
-            <p className="text-xs font-bold uppercase tracking-widest text-wheat">Homeflair</p>
+            <p className="text-xs font-bold uppercase tracking-widest text-wheat">Mr Slators Furnishings</p>
             <h2 className="mt-2 font-display text-3xl font-bold text-white sm:text-4xl md:text-5xl">
               Furnish your whole home with style
             </h2>
             <p className="mx-auto mt-3 max-w-lg text-sm leading-7 text-white/70">
-              Mix and match from our full range. Sofas, leather suites, garden furniture and ex-display deals — all under one roof.
+              Mix and match from our full range. Beds, mattresses, suites, solid pine furniture, and fitted carpets — all under one roof.
             </p>
             <div className="mt-6 flex flex-wrap justify-center gap-3">
               <Link href="/shop" className="inline-flex items-center gap-2 rounded-lg bg-wheat px-6 py-3 text-sm font-bold text-forest transition-colors hover:bg-wheat/90">
@@ -378,7 +378,7 @@ export function HomeView({ products, categories }: HomeViewProps) {
             First access to new collections & offers
           </h3>
           <p className="mt-2 text-sm text-taupe">
-            Sign up for new stock alerts, furniture tips and seasonal sale updates from Homeflair.
+            Sign up for new stock alerts, furniture tips and seasonal sale updates from Mr Slators Furnishings.
           </p>
           <form className="mx-auto mt-6 flex max-w-md gap-2">
             <label htmlFor="newsletter" className="sr-only">Email address</label>
