@@ -3,7 +3,7 @@ import { GalleryView } from "@/components/sections/GalleryView";
 
 export const metadata: Metadata = {
   title: "Gallery",
-  description: "Browse our Mr Slators Furnishings showroom gallery – beds, suites, solid pine furniture, and carpets."
+  description: "Browse our Homeflair showroom gallery – sofas, leather suites, and rattan garden furniture."
 };
 
 export default function GalleryPage() {

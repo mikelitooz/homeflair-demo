@@ -24,6 +24,11 @@ export type Product = {
   offer?: boolean;
   room: "Living Room" | "Bedroom" | "Dining Room" | "Home Office" | "Bathroom";
   variantId?: string;
+  brand?: string;
+  sku?: string;
+  leadTimeType?: "in_stock" | "made_to_order";
+  options?: { name: string; values: string[] }[];
+  url?: string;
 };
 
 const media = {
@@ -188,7 +193,7 @@ export const products: Product[] = [
     compareAtPrice: 39,
     badge: "Fitted Free",
     shortDescription: "Thick, luxurious deep-pile Saxony carpet including professional fitting.",
-    description: "Bring comfort underfoot. Our premium Saxony carpet is stain-resistant, bleach-cleanable, and feels incredibly soft. Price includes professional underlay and fitting by our expert local team in Sheffield. Available in a range of warm greys and cream colors.",
+    description: "Bring comfort underfoot. Our premium Saxony carpet is stain-resistant, bleach-cleanable, and feels incredibly soft. Price includes professional underlay and fitting by our expert local team in Rotherham. Available in a range of warm greys and cream colors.",
     dimensions: "Sold per square metre (m²)",
     materials: "100% Polypropylene Stain-Resistant Fibres",
     delivery: "Professional Home Installation",
@@ -212,12 +217,41 @@ export const products: Product[] = [
     images: [media.towelRail, media.tap],
     newArrival: true,
     room: "Living Room"
+  },
+  {
+    slug: "lebus-oscar-3-seater",
+    name: "Lebus Oscar 3-Seater Sofa",
+    category: "sofas-living",
+    price: 899,
+    shortDescription: "Elegant UK-crafted sofa featuring high-density foam seating and feather-filled scatter cushions.",
+    description: "Upholstered in premium quality fabric with robust hardwood frames, the Lebus Oscar 3-Seater is handmade to order in the UK. Featuring reversible back cushions and scatter cushions for adjustable comfort, complete with solid wooden feet.",
+    dimensions: "W 214cm x D 99cm x H 95cm",
+    materials: "Hardwood timber frame, high-density foam seat cushions, feather-filled back/scatter cushions, wooden legs",
+    delivery: "Made to order — typically 6–8 weeks, confirmed after order",
+    images: [
+      "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1500&q=85",
+      "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=1500&q=85",
+      "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=1500&q=85",
+      "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1500&q=85"
+    ],
+    featured: true,
+    newArrival: true,
+    room: "Living Room",
+    brand: "Lebus",
+    sku: "LEB-OSC-3S",
+    variantId: "gid://shopify/ProductVariant/42069000000",
+    leadTimeType: "made_to_order",
+    options: [
+      { name: "Fabric / Colour", values: ["Beige", "Charcoal", "Cinnamon", "Hunter Green", "Marine"] },
+      { name: "Feet Finish", values: ["Oak", "Mahogany"] }
+    ],
+    url: "/product/lebus-oscar-3-seater"
   }
 ];
 
 export const promoBanners = [
-  "Welcome to Mr Slators Furnishings – Complete Home Furnishings since 1970",
-  "Visit our Sheffield showroom: 110-124 Infirmary Road, S6 3DG",
+  "Welcome to Homeflair – Complete Home Furnishings since 1972",
+  "Visit our Rotherham showroom: 110-124 Parkgate, S6 3DG",
   "Friendly Home Delivery – our drivers deliver directly to your room of choice",
   "Special Carpet Offers: High quality fitted carpets including professional underlay",
 ];

@@ -7,10 +7,10 @@
 :root {
   --background:   #FAF9F6;
   --foreground:   #121212;
-  --forest:       #1C2B5E; /* Navy Blue  */
-  --forest-light: #2A3F80; /* Lighter Navy */
-  --wheat:        #E8732A; /* Burnt Orange */
-  --bronze:       #C05A1A; /* Deep Orange */
+  --forest:       #C5A880; /* Champagne Gold */
+  --forest-light: #D4C0A3; /* Lighter Gold */
+  --wheat:        #C5A880; /* Champagne Gold */
+  --bronze:       #D01B22; /* Crimson Red */
   --smoke:        #E4E2DE; /* Light Gray */
 }
 

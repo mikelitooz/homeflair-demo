@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { Heart, MapPin, Menu, Phone, Search, ShoppingBasket, Truck, UserRound, X, ChevronRight } from "lucide-react";
 import { FormEvent, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
@@ -80,12 +81,17 @@ export function Header({ categories = [] }: { categories: Category[] }) {
           </button>
 
           {/* Logo */}
-          <Link href="/" className="hidden lg:flex items-center gap-2">
-            <span className="font-display text-3xl font-bold tracking-tight text-forest">Slators</span>
-            <span className="font-display text-3xl font-light tracking-tight text-forest">Furniture</span>
-          </Link>
-          <Link href="/" className="lg:hidden">
-            <span className="font-display text-2xl font-bold tracking-tight text-forest">Slators Furniture</span>
+          <Link href="/" className="flex items-center">
+            <div className="relative h-12 w-28 md:h-14 md:w-32">
+              <Image
+                src="/homeflair-logo.png"
+                alt="Homeflair Logo - ...It's how you live"
+                fill
+                sizes="(max-width: 768px) 112px, 128px"
+                className="object-contain"
+                priority
+              />
+            </div>
           </Link>
 
           {/* Search */}
@@ -197,7 +203,7 @@ export function Header({ categories = [] }: { categories: Category[] }) {
                 <ShoppingBasket className="h-4 w-4" /> Basket ({totalItems})
               </Link>
               <Link href="/contact" onClick={() => setMobileOpen(false)} className="flex items-center gap-2 rounded-lg px-3 py-2.5 text-sm text-taupe hover:bg-cream transition-colors">
-                <MapPin className="h-4 w-4" /> Visit our Sheffield showroom
+                <MapPin className="h-4 w-4" /> Visit our Rotherham showroom
               </Link>
             </div>
           </div>

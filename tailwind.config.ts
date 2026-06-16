@@ -5,20 +5,20 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        /* ── Mr Slators Furnishings – Real Storefront Colours ── */
+        /* ── Homeflair – Real Storefront Colours ── */
         /* Source: Actual shopfront signage photo                  */
-        forest:        "#1C2B5E", // Deep Navy Blue  (sign text & wordmark)
-        "forest-light":"#2A3F80", // Medium Navy     (hover states)
-        moss:          "#111A3A", // Darkest Navy    (deep backgrounds)
-        wheat:         "#E8732A", // Burnt Orange    (bullet dots & logo badge)
-        ivory:         "#FAF9F6", // Off-White       (canvas / page bg)
-        linen:         "#F2F0EC", // Warm Linen      (section backgrounds)
-        cream:         "#FFFFFF", // Pure White      (sign fascia)
-        charcoal:      "#121212", // Near Black      (body text)
-        graphite:      "#4A4A55", // Mid Gray        (nav bars)
-        taupe:         "#8B8B99", // Muted Gray      (secondary text)
-        bronze:        "#C05A1A", // Deep Orange     (darker accent / pressed state)
-        smoke:         "#E4E2DE", // Light Gray      (borders & dividers)
+        forest:        "#C5A880", // Champagne Gold Accent
+        "forest-light":"#D4C0A3", // Lighter Gold (hover states)
+        moss:          "#B49973", // Darker Gold (active / deep accent)
+        wheat:         "#C5A880", // Champagne Gold Accent
+        ivory:         "#FAF9F6", // Off-White (canvas / page bg)
+        linen:         "#F2F0EC", // Warm Linen (section backgrounds)
+        cream:         "#FFFFFF", // Pure White
+        charcoal:      "#121212", // Near Black (body text)
+        graphite:      "#4A4A55", // Mid Gray
+        taupe:         "#8B8B99", // Muted Gray (secondary text)
+        bronze:        "#D01B22", // Crimson Red (sale / clearance)
+        smoke:         "#E4E2DE", // Light Gray (borders & dividers)
       },
       fontFamily: {
         display: ["var(--font-display)", "serif"],

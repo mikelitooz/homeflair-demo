@@ -20,17 +20,22 @@ const body = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://mrslators-demo.vercel.app"),
+  metadataBase: new URL("https://homeflair-demo.vercel.app"),
   title: {
-    default: "Mr Slators Furnishings | Quality Furniture & Carpets Since 1970 – Sheffield",
-    template: "%s | Mr Slators Furnishings",
+    default: "Homeflair | Quality Furniture & Carpets Since 1972 – Rotherham",
+    template: "%s | Homeflair",
   },
   description:
-    "Beds, suites, solid pine furniture, carpets, and occasional items. Visit our Sheffield showroom or shop online. Family-run since 1970.",
+    "Beds, suites, solid pine furniture, carpets, and occasional items. Visit our Rotherham showroom or shop online. Family-run since 1972.",
+  icons: {
+    icon: "/homeflair-logo.png",
+    shortcut: "/homeflair-logo.png",
+    apple: "/homeflair-logo.png",
+  },
   openGraph: {
-    title: "Mr Slators Furnishings | Quality Furniture & Carpets Since 1970 – Sheffield",
+    title: "Homeflair | Quality Furniture & Carpets Since 1972 – Rotherham",
     description:
-      "Beds, suites, solid pine furniture, and carpets from a trusted family retailer. Visit our Infirmary Road showroom in Sheffield.",
+      "Beds, suites, solid pine furniture, and carpets from a trusted family retailer. Visit our Parkgate showroom in Rotherham.",
     type: "website",
   },
 };

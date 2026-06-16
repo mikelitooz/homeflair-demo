@@ -20,13 +20,14 @@ export function CartDrawer() {
       />
       {/* Drawer */}
       <aside
+        aria-label="Your Basket"
         className={`absolute right-0 top-0 flex h-dvh w-full max-w-md flex-col bg-white shadow-showroom transition-transform duration-300 ease-out ${
           isCartOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
         {/* Header */}
         <div className="flex items-center justify-between border-b border-smoke/50 px-6 py-4">
-          <h2 className="font-display text-2xl font-bold text-charcoal">Your Basket</h2>
+          <div className="font-display text-2xl font-bold text-charcoal">Your Basket</div>
           <button type="button" onClick={closeCart} aria-label="Close cart" className="grid h-9 w-9 place-items-center rounded-lg border border-smoke text-taupe hover:bg-cream hover:text-charcoal transition-colors">
             <X className="h-4 w-4" />
           </button>

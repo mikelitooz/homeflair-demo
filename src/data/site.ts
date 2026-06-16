@@ -12,13 +12,13 @@ import {
 } from "lucide-react";
 
 export const business = {
-  name: "Mr Slators Furnishings",
-  tagline: "Complete Home Furnishings since 1970.",
-  address: "110-124 Infirmary Road, Sheffield S6 3DG",
-  phone: "0114 276 5940",
-  email: "sales@mrslators.co.uk",
+  name: "Homeflair",
+  tagline: "Complete Home Furnishings since 1972.",
+  address: "Parkgate Complex, Rawmarsh Rd, Rotherham S60 1RZ",
+  phone: "01709 376633",
+  email: "sales@homeflair.com",
   rating: "4.7",
-  reviews: "Highly rated independent Sheffield furniture store",
+  reviews: "Highly rated independent Rotherham furniture store",
   hours: [
     ["Monday", "10:00 AM - 4:30 PM"],
     ["Tuesday", "10:00 AM - 4:30 PM"],
@@ -29,7 +29,7 @@ export const business = {
     ["Sunday", "Closed"]
   ],
   sourceNote:
-    "Independent, family-run furniture & carpets store in Sheffield since 1970."
+    "Independent, family-run furniture & carpets store in Rotherham since 1972."
 };
 
 export const sourcePages = [];
@@ -103,34 +103,34 @@ export const services = [
   },
   {
     title: "Local Customer Service",
-    description: "No chatbots or long wait lines. Speak directly to our friendly store team on Infirmary Road.",
+    description: "No chatbots or long wait lines. Speak directly to our friendly store team on Parkgate.",
     icon: PackageCheck
   }
 ];
 
 export const reasons = [
-  { title: "Family Run Since 1970", description: "Over 50 years of outstanding furniture & flooring service in Sheffield." },
+  { title: "Family Run Since 1972", description: "Over 50 years of outstanding furniture & flooring service in Rotherham." },
   { title: "Wide Product Range", description: "Specializing in sleigh beds, pine units, cozy suites, and premium carpets." },
-  { title: "Try Before You Buy", description: "Visit our Infirmary Road showroom to test and feel every piece." },
+  { title: "Try Before You Buy", description: "Visit our Parkgate showroom to test and feel every piece." },
   { title: "No Pressure Sales", description: "Friendly local team where nothing is too much trouble." }
 ];
 
 export const testimonials = [
   {
-    quote: "The team at Mr Slators are so helpful and friendly. We are absolutely satisfied with the sleigh bed and the delivery service. A lovely local business where nothing is too much trouble.",
+    quote: "The team at Mr Homeflair are so helpful and friendly. We are absolutely satisfied with the sleigh bed and the delivery service. A lovely local business where nothing is too much trouble.",
     name: "Michaela M.",
-    detail: "Bed Purchase – Sheffield"
+    detail: "Bed Purchase – Rotherham"
   },
   {
-    quote: "I could not be happier with my experience buying our pine dining set and carpet from Mr Slators. The staff were friendly, down to earth, and not pushy. Highly recommend!",
+    quote: "I could not be happier with my experience buying our pine dining set and carpet from Mr Homeflair. The staff were friendly, down to earth, and not pushy. Highly recommend!",
     name: "James B.",
-    detail: "Furniture & Flooring – Sheffield"
+    detail: "Furniture & Flooring – Rotherham"
   }
 ];
 
 export const gallery = [
   { src: media.hero, title: "Comfortable Seating", span: "md:col-span-2 md:row-span-2" },
-  { src: media.showroom, title: "Our Sheffield Showroom", span: "" },
+  { src: media.showroom, title: "Our Rotherham Showroom", span: "" },
   { src: media.bath, title: "Beds & Mattresses", span: "" },
   { src: media.vanity, title: "Solid Pine & Oak Pieces", span: "md:col-span-2" },
   { src: media.dining, title: "Dining Collections", span: "" },
@@ -138,9 +138,9 @@ export const gallery = [
 ];
 
 export const stats = [
-  { value: "1970", label: "Established" },
+  { value: "1972", label: "Established" },
   { value: "50+", label: "Years of Service" },
-  { value: "Sheffield", label: "Local Showroom" },
+  { value: "Rotherham", label: "Local Showroom" },
   { value: "4.7", label: "Google Rated" }
 ];
 

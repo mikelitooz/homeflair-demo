@@ -21,9 +21,9 @@ const heroSlides = [
   {
     image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=2000&q=85",
     alt: "Luxury fabric sofa showroom display",
-    tag: "Family-run since 1970",
+    tag: "Family-run since 1972",
     headline: "Quality furniture for every home",
-    copy: "Beds, mattresses, suites, solid pine furniture, and carpets. Visit our Sheffield showroom or shop online with friendly delivery.",
+    copy: "Beds, mattresses, suites, solid pine furniture, and carpets. Visit our Rotherham showroom or shop online with friendly delivery.",
     primaryCta: { label: "Shop all furniture", href: "/shop" },
     secondaryCta: { label: "View offers", href: "/shop?offer=true" },
   },
@@ -289,7 +289,7 @@ export function HomeView({ products, categories }: HomeViewProps) {
         <div className="relative overflow-hidden rounded-card bg-forest px-8 py-10 text-center md:py-12">
           <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=2000&q=30')] bg-cover bg-center opacity-15" />
           <div className="relative z-10">
-            <p className="text-xs font-bold uppercase tracking-widest text-wheat">Mr Slators Furnishings</p>
+            <p className="text-xs font-bold uppercase tracking-widest text-wheat">Homeflair</p>
             <h2 className="mt-2 font-display text-3xl font-bold text-white sm:text-4xl md:text-5xl">
               Furnish your whole home with style
             </h2>
@@ -378,7 +378,7 @@ export function HomeView({ products, categories }: HomeViewProps) {
             First access to new collections & offers
           </h3>
           <p className="mt-2 text-sm text-taupe">
-            Sign up for new stock alerts, furniture tips and seasonal sale updates from Mr Slators Furnishings.
+            Sign up for new stock alerts, furniture tips and seasonal sale updates from Homeflair.
           </p>
           <form className="mx-auto mt-6 flex max-w-md gap-2">
             <label htmlFor="newsletter" className="sr-only">Email address</label>
