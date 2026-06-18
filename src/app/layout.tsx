@@ -41,6 +41,7 @@ export const metadata: Metadata = {
 };
 
 import { getCategories } from "@/data/ecommerce";
+import ChatWidget from "@/components/ChatWidget";
 
 export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   const categories = await getCategories();
@@ -53,6 +54,7 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
           <Footer categories={categories} />
           <CartDrawer />
           <Toast />
+          <ChatWidget />
         </CartProvider>
       </body>
     </html>

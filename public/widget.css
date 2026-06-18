@@ -1,0 +1,301 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   HomeFlair Chat Widget — widget.css
+   Scope: all rules prefixed with .hf- or #hf- to avoid collisions.
+   No price, guard, or delivery logic — presentation only.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── Design tokens ─────────────────────────────────────────────────────────── */
+:root {
+  --hf-primary:        #1a3a5c;   /* deep navy — placeholder; update to brand colour */
+  --hf-primary-light:  #2c5282;
+  --hf-accent:         #d4a853;   /* warm gold */
+  --hf-surface:        #ffffff;
+  --hf-surface-alt:    #f7f8fa;
+  --hf-text:           #1a202c;
+  --hf-text-muted:     #718096;
+  --hf-border:         #e2e8f0;
+  --hf-bubble-size:    3.5rem;
+  --hf-panel-w:        360px;
+  --hf-panel-h:        520px;
+  --hf-radius-panel:   16px;
+  --hf-radius-msg:     12px;
+  --hf-shadow:         0 8px 32px rgba(0, 0, 0, 0.18);
+  --hf-font:           'Inter', system-ui, -apple-system, sans-serif;
+  --hf-transition:     0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── Floating bubble ───────────────────────────────────────────────────────── */
+.hf-bubble {
+  position:        fixed;
+  bottom:          1.5rem;
+  right:           1.5rem;
+  z-index:         9998;
+  width:           var(--hf-bubble-size);
+  height:          var(--hf-bubble-size);
+  border-radius:   50%;
+  border:          none;
+  background:      var(--hf-primary);
+  color:           var(--hf-surface);
+  font-size:       1.4rem;
+  cursor:          pointer;
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  box-shadow:      var(--hf-shadow);
+  transition:      transform var(--hf-transition), background var(--hf-transition);
+  outline-offset:  3px;
+}
+
+.hf-bubble:hover {
+  background:  var(--hf-primary-light);
+  transform:   scale(1.08);
+}
+
+.hf-bubble:focus-visible {
+  outline: 3px solid var(--hf-accent);
+}
+
+/* ── Panel ─────────────────────────────────────────────────────────────────── */
+.hf-panel {
+  position:       fixed;
+  bottom:         calc(var(--hf-bubble-size) + 2rem);
+  right:          1.5rem;
+  z-index:        9999;
+  width:          var(--hf-panel-w);
+  height:         var(--hf-panel-h);
+  max-height:     calc(100dvh - 6rem);
+  background:     var(--hf-surface);
+  border-radius:  var(--hf-radius-panel);
+  box-shadow:     var(--hf-shadow);
+  display:        flex;
+  flex-direction: column;
+  font-family:    var(--hf-font);
+  font-size:      0.9rem;
+  color:          var(--hf-text);
+  border:         1px solid var(--hf-border);
+
+  /* Hidden by default — revealed via .hf-panel--open */
+  opacity:        0;
+  transform:      translateY(12px) scale(0.97);
+  pointer-events: none;
+  transition:     opacity var(--hf-transition), transform var(--hf-transition);
+}
+
+.hf-panel--open {
+  opacity:        1;
+  transform:      translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+/* ── Panel header ──────────────────────────────────────────────────────────── */
+.hf-panel-header {
+  display:         flex;
+  align-items:     center;
+  justify-content: space-between;
+  padding:         0.875rem 1rem;
+  background:      var(--hf-primary);
+  color:           var(--hf-surface);
+  border-radius:   var(--hf-radius-panel) var(--hf-radius-panel) 0 0;
+  flex-shrink:     0;
+}
+
+.hf-panel-title {
+  font-weight: 600;
+  font-size:   0.95rem;
+  letter-spacing: 0.01em;
+}
+
+.hf-close-btn {
+  background:  transparent;
+  border:      none;
+  color:       rgba(255, 255, 255, 0.8);
+  cursor:      pointer;
+  font-size:   1rem;
+  padding:     0.25rem;
+  line-height: 1;
+  border-radius: 4px;
+  transition:  color var(--hf-transition), background var(--hf-transition);
+}
+
+.hf-close-btn:hover {
+  color:       var(--hf-surface);
+  background:  rgba(255, 255, 255, 0.15);
+}
+
+.hf-close-btn:focus-visible {
+  outline: 2px solid var(--hf-accent);
+  outline-offset: 2px;
+}
+
+/* ── Message list ──────────────────────────────────────────────────────────── */
+.hf-messages {
+  flex:        1;
+  overflow-y:  auto;
+  padding:     1rem;
+  display:     flex;
+  flex-direction: column;
+  gap:         0.625rem;
+  scroll-behavior: smooth;
+}
+
+.hf-messages::-webkit-scrollbar       { width: 4px; }
+.hf-messages::-webkit-scrollbar-track { background: transparent; }
+.hf-messages::-webkit-scrollbar-thumb { background: var(--hf-border); border-radius: 2px; }
+
+/* ── Message bubbles ───────────────────────────────────────────────────────── */
+.hf-msg {
+  max-width:     80%;
+  padding:       0.6rem 0.875rem;
+  border-radius: var(--hf-radius-msg);
+  line-height:   1.5;
+  word-break:    break-word;
+}
+
+.hf-msg--user {
+  background:    var(--hf-primary);
+  color:         var(--hf-surface);
+  align-self:    flex-end;
+  border-bottom-right-radius: 4px;
+}
+
+.hf-msg--bot {
+  background:    var(--hf-surface-alt);
+  color:         var(--hf-text);
+  align-self:    flex-start;
+  border:        1px solid var(--hf-border);
+  border-bottom-left-radius: 4px;
+}
+
+/* ── Thinking / typing indicator ───────────────────────────────────────────── */
+.hf-thinking {
+  display:     flex;
+  gap:         5px;
+  align-items: center;
+  padding:     0.75rem 1rem;
+}
+
+.hf-thinking span {
+  width:            7px;
+  height:           7px;
+  background:       var(--hf-text-muted);
+  border-radius:    50%;
+  animation:        hf-bounce 1.2s infinite ease-in-out;
+}
+
+.hf-thinking span:nth-child(2) { animation-delay: 0.2s; }
+.hf-thinking span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes hf-bounce {
+  0%, 80%, 100% { transform: translateY(0);    opacity: 0.4; }
+  40%           { transform: translateY(-6px); opacity: 1;   }
+}
+
+/* ── Quick-reply chips ─────────────────────────────────────────────────────── */
+.hf-chips {
+  display:    flex;
+  flex-wrap:  wrap;
+  gap:        0.4rem;
+  padding:    0 1rem 0.625rem;
+  flex-shrink: 0;
+}
+
+.hf-chip {
+  padding:       0.35rem 0.75rem;
+  border-radius: 999px;
+  border:        1.5px solid var(--hf-primary);
+  background:    transparent;
+  color:         var(--hf-primary);
+  font-family:   var(--hf-font);
+  font-size:     0.8rem;
+  font-weight:   500;
+  cursor:        pointer;
+  transition:    background var(--hf-transition), color var(--hf-transition);
+  white-space:   nowrap;
+}
+
+.hf-chip:hover {
+  background: var(--hf-primary);
+  color:      var(--hf-surface);
+}
+
+.hf-chip:focus-visible {
+  outline:        2px solid var(--hf-accent);
+  outline-offset: 2px;
+}
+
+/* ── Input row ─────────────────────────────────────────────────────────────── */
+.hf-input-row {
+  display:      flex;
+  gap:          0.5rem;
+  padding:      0.75rem 1rem;
+  border-top:   1px solid var(--hf-border);
+  flex-shrink:  0;
+  background:   var(--hf-surface);
+  border-radius: 0 0 var(--hf-radius-panel) var(--hf-radius-panel);
+}
+
+.hf-input {
+  flex:          1;
+  border:        1.5px solid var(--hf-border);
+  border-radius: 8px;
+  padding:       0.5rem 0.75rem;
+  font-family:   var(--hf-font);
+  font-size:     0.9rem;
+  color:         var(--hf-text);
+  background:    var(--hf-surface-alt);
+  outline:       none;
+  transition:    border-color var(--hf-transition);
+}
+
+.hf-input:focus {
+  border-color: var(--hf-primary);
+}
+
+.hf-input::placeholder {
+  color: var(--hf-text-muted);
+}
+
+.hf-send-btn {
+  background:    var(--hf-primary);
+  color:         var(--hf-surface);
+  border:        none;
+  border-radius: 8px;
+  padding:       0.5rem 0.875rem;
+  font-size:     1rem;
+  cursor:        pointer;
+  transition:    background var(--hf-transition);
+  flex-shrink:   0;
+}
+
+.hf-send-btn:hover  { background: var(--hf-primary-light); }
+
+.hf-send-btn:focus-visible {
+  outline: 2px solid var(--hf-accent);
+  outline-offset: 2px;
+}
+
+/* ── Responsive — narrow screens ────────────────────────────────────────────── */
+@media (max-width: 420px) {
+  .hf-panel {
+    width:          calc(100vw - 2rem);
+    right:          1rem;
+    bottom:         calc(var(--hf-bubble-size) + 1rem);
+    max-height:     calc(100dvh - 5rem);
+  }
+}
+
+/* ── Reduced motion ─────────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .hf-bubble,
+  .hf-panel,
+  .hf-chip,
+  .hf-close-btn,
+  .hf-send-btn,
+  .hf-input {
+    transition: none;
+  }
+  .hf-thinking span {
+    animation: none;
+    opacity: 0.6;
+  }
+}
