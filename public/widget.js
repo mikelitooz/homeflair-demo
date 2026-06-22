@@ -11,13 +11,6 @@
  * This file contains ZERO price logic, ZERO hallucination-guard logic, and
  * ZERO delivery-routing logic. All validation lives server-side in the n8n
  * "Validate Response" Code node (§6 of the kickoff spec).
- *
- * Environment — filled by the server when serving this file, or set manually
- * for local testing via demo.html:
- *   window.HF_WIDGET_CONFIG = {
- *     webhookUrl : 'https://your-n8n-instance.com/webhook/homeflair-chat',
- *     widgetKey  : 'X-Widget-Key value (WEBHOOK_SHARED_SECRET)',
- *   };
  * ─────────────────────────────────────────────────────────────────────────────
  */
 
@@ -25,21 +18,20 @@
   'use strict';
 
   /* ── 0. Config ─────────────────────────────────────────────────────────── */
-  const CONFIG = window.HF_WIDGET_CONFIG || {};
-  const WEBHOOK_URL = CONFIG.webhookUrl || '';
-  const WIDGET_KEY  = CONFIG.widgetKey  || '';
+  // NOTE: Do NOT snapshot productContext/webhookUrl here. ChatWidget.tsx
+  // reassigns window.HF_WIDGET_CONFIG on every SPA navigation, so anything
+  // captured at boot goes stale. We read window.HF_WIDGET_CONFIG LIVE at
+  // send-time instead (see getConfig()).
+  function getConfig() {
+    return window.HF_WIDGET_CONFIG || {};
+  }
 
-  if (!WEBHOOK_URL) {
+  if (!getConfig().webhookUrl) {
     console.warn('[HomeFlair Widget] webhookUrl not set — widget disabled.');
     return;
   }
 
   /* ── 1. Session ID ─────────────────────────────────────────────────────── */
-  /**
-   * Retrieve or create a UUID v4 persisted in localStorage.
-   * This is the key for Postgres chat memory on the server.
-   * It is NOT a phone number or personally identifying token.
-   */
   function getSessionId() {
     const KEY = 'hf_chat_session_id';
     let id = localStorage.getItem(KEY);
@@ -57,23 +49,18 @@
 
   /* ── 2. Product-context detection ──────────────────────────────────────── */
   /**
-   * Attempt to read product metadata from the current page.
-   * HomeFlair is a Shopify store — product pages expose meta tags.
-   * Returns null on non-product pages.
-   *
-   * Detected fields:
-   *   sku          — variant SKU from og:product:sku or Shopify script tag
-   *   name         — product title from og:title
-   *   leadTimeType — "in_stock" | "made_to_order" (derived from collection slug)
-   *   url          — canonical product URL
-   *
-   * NOTE: leadTimeType derivation is a best-effort heuristic on the client.
-   * The server (AI Agent + Pinecone metadata) is authoritative.
+   * Read product metadata for the current page.
+   * PRIMARY source: window.HF_WIDGET_CONFIG.productContext, set live by
+   * ChatWidget.tsx (authoritative — has title, price, brand, sku, leadTimeType).
+   * FALLBACK (only if config has none): scrape page meta tags.
    */
   function detectProductContext() {
-    if (CONFIG.productContext) {
-      return CONFIG.productContext;
+    // ── FIX: read the LIVE config, not a boot-time snapshot. ──
+    const liveConfig = getConfig();
+    if (liveConfig.productContext) {
+      return liveConfig.productContext;
     }
+
     const url = window.location.href;
     const isProductPage = url.includes('/products/') || url.includes('/product/');
     if (!isProductPage) return null;
@@ -84,17 +71,10 @@
     };
 
     const name  = getMeta('og:title') || document.title || '';
-    const price = getMeta('og:price:amount');       // not sent to server — informational only
-    const image = getMeta('og:image');
 
-    // Derive handle from URL path: /products/{handle} or /product/{handle}
     const handleMatch = url.match(/\/(products|product)\/([^/?#]+)/);
     const handle      = handleMatch ? handleMatch[2] : '';
 
-    // Heuristic: in-stock collections contain "in-stock-to-go", "rattan-furniture-clearance",
-    // or "ex-display-sofas" in the page's collection breadcrumb links.
-    // This is a hint only — server metadata is authoritative.
-    const pageText    = document.body.innerText.toLowerCase();
     const breadcrumbs = Array.from(document.querySelectorAll('a[href*="/collections/"]'))
                              .map(a => a.href);
     const inStockSlugs = ['in-stock-to-go', 'rattan-furniture-clearance', 'ex-display-sofas'];
@@ -105,19 +85,14 @@
       handle,
       name,
       leadTimeType,
-      url: url.split('?')[0],   // strip query params before sending
+      url: url.split('?')[0],
     };
   }
 
   /* ── 3. API call ───────────────────────────────────────────────────────── */
-  /**
-   * POST a user message to the n8n webhook and return the parsed response.
-   * The server returns:
-   *   { reply, sessionId, suggestedReplies?, timestamp? }
-   *
-   * Auth: X-Widget-Key header (§8.5 — server also enforces Origin + rate limit).
-   */
   async function sendMessage(userMessage) {
+    // ── FIX: read live config for URL + key too (same staleness class). ──
+    const liveConfig     = getConfig();
     const sessionId      = getSessionId();
     const productContext = detectProductContext();
     const pageUrl        = window.location.href;
@@ -129,11 +104,11 @@
       pageUrl,
     };
 
-    const res = await fetch(WEBHOOK_URL, {
+    const res = await fetch(liveConfig.webhookUrl || '', {
       method  : 'POST',
       headers : {
         'Content-Type' : 'application/json',
-        'X-Widget-Key' : WIDGET_KEY,
+        'X-Widget-Key' : liveConfig.widgetKey || '',
       },
       body    : JSON.stringify(payload),
     });
@@ -143,29 +118,23 @@
     }
 
     return await res.json();
-    // Response shape: { reply: string, sessionId: string, suggestedReplies?: string[] }
   }
 
   /* ── 4. DOM construction ───────────────────────────────────────────────── */
-
   function buildWidget() {
-    /* Inject stylesheet link */
     const link = document.createElement('link');
     link.rel   = 'stylesheet';
-    link.href  = (CONFIG.cssUrl || '') || (
-      // Fallback: same directory as this script
+    link.href  = (getConfig().cssUrl || '') || (
       (document.currentScript ? document.currentScript.src : '').replace('widget.js', 'widget.css')
     );
     document.head.appendChild(link);
 
-    /* Bubble button */
     const bubble = document.createElement('button');
     bubble.id          = 'hf-chat-bubble';
     bubble.className   = 'hf-bubble';
     bubble.setAttribute('aria-label', 'Open HomeFlair chat assistant');
     bubble.innerHTML   = '💬';
 
-    /* Panel */
     const panel = document.createElement('div');
     panel.id        = 'hf-chat-panel';
     panel.className = 'hf-panel';
@@ -201,10 +170,9 @@
   }
 
   /* ── 5. Message rendering ──────────────────────────────────────────────── */
-
   function appendMessage(messagesEl, text, role) {
     const msg = document.createElement('div');
-    msg.className = `hf-msg hf-msg--${role}`;   // role: "user" | "bot"
+    msg.className = `hf-msg hf-msg--${role}`;
     msg.textContent = text;
     messagesEl.appendChild(msg);
     messagesEl.scrollTop = messagesEl.scrollHeight;
@@ -221,10 +189,6 @@
     return el;
   }
 
-  /**
-   * Render suggested-reply chips below the message list.
-   * Clicking a chip submits it as a user message.
-   */
   function renderChips(chipsEl, replies, onChipClick) {
     chipsEl.innerHTML = '';
     if (!Array.isArray(replies) || replies.length === 0) return;
@@ -240,7 +204,6 @@
   }
 
   /* ── 6. Widget controller ──────────────────────────────────────────────── */
-
   function init() {
     const { bubble, panel } = buildWidget();
     const messagesEl = document.getElementById('hf-messages');
@@ -251,14 +214,12 @@
 
     let isOpen = false;
 
-    /* Open/close */
     function openPanel() {
       isOpen = true;
       panel.setAttribute('aria-hidden', 'false');
       panel.classList.add('hf-panel--open');
       bubble.setAttribute('aria-expanded', 'true');
       input.focus();
-      // Show greeting on first open
       if (messagesEl.children.length === 0) {
         appendMessage(
           messagesEl,
@@ -279,12 +240,10 @@
     bubble.addEventListener('click', () => isOpen ? closePanel() : openPanel());
     closeBtn.addEventListener('click', closePanel);
 
-    /* Keyboard: Escape closes panel */
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && isOpen) closePanel();
     });
 
-    /* Submit handler */
     async function submit(text) {
       const trimmed = text.trim();
       if (!trimmed) return;
