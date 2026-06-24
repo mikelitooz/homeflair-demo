@@ -1,23 +1,23 @@
 /**
- * HomeFlair Chat Widget — widget.js
- * ─────────────────────────────────────────────────────────────────────────────
+ * HomeFlair Chat Widget - widget.js
+ * -----------------------------------------------------------------------------
  * Presentation layer ONLY. This file handles:
- *   • Floating chat bubble and panel UI
- *   • User input capture and POST to the n8n webhook
- *   • Rendering bot replies and suggested-reply chips
- *   • sessionId persistence in localStorage
- *   • Product-context detection from the current page
+ *   - Floating chat bubble and panel UI
+ *   - User input capture and POST to the n8n webhook
+ *   - Rendering bot replies and suggested-reply chips
+ *   - sessionId persistence in localStorage
+ *   - Product-context detection from the current page
  *
  * This file contains ZERO price logic, ZERO hallucination-guard logic, and
  * ZERO delivery-routing logic. All validation lives server-side in the n8n
- * "Validate Response" Code node (§6 of the kickoff spec).
- * ─────────────────────────────────────────────────────────────────────────────
+ * "Validate Response" Code node (section 6 of the kickoff spec).
+ * -----------------------------------------------------------------------------
  */
 
 (function () {
   'use strict';
 
-  /* ── 0. Config ─────────────────────────────────────────────────────────── */
+  /* -- 0. Config ---------------------------------------------------------- */
   // NOTE: Do NOT snapshot productContext/webhookUrl here. ChatWidget.tsx
   // reassigns window.HF_WIDGET_CONFIG on every SPA navigation, so anything
   // captured at boot goes stale. We read window.HF_WIDGET_CONFIG LIVE at
@@ -27,11 +27,11 @@
   }
 
   if (!getConfig().webhookUrl) {
-    console.warn('[HomeFlair Widget] webhookUrl not set — widget disabled.');
+    console.warn('[HomeFlair Widget] webhookUrl not set, widget disabled.');
     return;
   }
 
-  /* ── 1. Session ID ─────────────────────────────────────────────────────── */
+  /* -- 1. Session ID ------------------------------------------------------ */
   function getSessionId() {
     const KEY = 'hf_chat_session_id';
     let id = localStorage.getItem(KEY);
@@ -47,15 +47,15 @@
     return id;
   }
 
-  /* ── 2. Product-context detection ──────────────────────────────────────── */
+  /* -- 2. Product-context detection --------------------------------------- */
   /**
    * Read product metadata for the current page.
    * PRIMARY source: window.HF_WIDGET_CONFIG.productContext, set live by
-   * ChatWidget.tsx (authoritative — has title, price, brand, sku, leadTimeType).
+   * ChatWidget.tsx (authoritative, has title, price, brand, sku, leadTimeType).
    * FALLBACK (only if config has none): scrape page meta tags.
    */
   function detectProductContext() {
-    // ── FIX: read the LIVE config, not a boot-time snapshot. ──
+    // -- FIX: read the LIVE config, not a boot-time snapshot. --
     const liveConfig = getConfig();
     if (liveConfig.productContext) {
       return liveConfig.productContext;
@@ -89,9 +89,9 @@
     };
   }
 
-  /* ── 3. API call ───────────────────────────────────────────────────────── */
+  /* -- 3. API call -------------------------------------------------------- */
   async function sendMessage(userMessage) {
-    // ── FIX: read live config for URL + key too (same staleness class). ──
+    // -- FIX: read live config for URL + key too (same staleness class). --
     const liveConfig     = getConfig();
     const sessionId      = getSessionId();
     const productContext = detectProductContext();
@@ -120,7 +120,7 @@
     return await res.json();
   }
 
-  /* ── 4. DOM construction ───────────────────────────────────────────────── */
+  /* -- 4. DOM construction ------------------------------------------------ */
   function buildWidget() {
     const link = document.createElement('link');
     link.rel   = 'stylesheet';
@@ -133,7 +133,7 @@
     bubble.id          = 'hf-chat-bubble';
     bubble.className   = 'hf-bubble';
     bubble.setAttribute('aria-label', 'Open HomeFlair chat assistant');
-    bubble.innerHTML   = '💬';
+    bubble.innerHTML   = '\u{1F4AC}';
 
     const panel = document.createElement('div');
     panel.id        = 'hf-chat-panel';
@@ -145,7 +145,7 @@
     panel.innerHTML = `
       <div class="hf-panel-header">
         <span class="hf-panel-title">HomeFlair Assistant</span>
-        <button class="hf-close-btn" id="hf-close-btn" aria-label="Close chat">✕</button>
+        <button class="hf-close-btn" id="hf-close-btn" aria-label="Close chat">\u2715</button>
       </div>
       <div class="hf-messages" id="hf-messages" aria-live="polite" aria-relevant="additions"></div>
       <div class="hf-chips" id="hf-chips"></div>
@@ -154,12 +154,12 @@
           type="text"
           id="hf-input"
           class="hf-input"
-          placeholder="Ask about products, delivery…"
+          placeholder="Ask about products, delivery..."
           aria-label="Type your message"
           maxlength="500"
           required
         />
-        <button type="submit" class="hf-send-btn" aria-label="Send message">➤</button>
+        <button type="submit" class="hf-send-btn" aria-label="Send message">\u27A4</button>
       </form>
     `;
 
@@ -169,7 +169,7 @@
     return { bubble, panel };
   }
 
-  /* ── 5. Message rendering ──────────────────────────────────────────────── */
+  /* -- 5. Message rendering ----------------------------------------------- */
   function appendMessage(messagesEl, text, role) {
     const msg = document.createElement('div');
     msg.className = `hf-msg hf-msg--${role}`;
@@ -203,7 +203,7 @@
     });
   }
 
-  /* ── 6. Widget controller ──────────────────────────────────────────────── */
+  /* -- 6. Widget controller ----------------------------------------------- */
   function init() {
     const { bubble, panel } = buildWidget();
     const messagesEl = document.getElementById('hf-messages');
@@ -223,7 +223,7 @@
       if (messagesEl.children.length === 0) {
         appendMessage(
           messagesEl,
-          "Hi! I'm the HomeFlair Assistant — happy to help with products, delivery, returns, or visiting the showroom. What are you looking for today?",
+          "Hi! I'm the HomeFlair Assistant, happy to help with products, delivery, returns, or visiting the showroom. What are you looking for today?",
           'bot'
         );
         renderChips(chipsEl, ['Delivery costs', 'View products', 'Talk to sales'], submitChip);
@@ -263,7 +263,7 @@
         thinking.remove();
         appendMessage(
           messagesEl,
-          "I'm having trouble right now — please try again, or call us on 01709 376633.",
+          "I'm having trouble right now, please try again, or call us on 01709 376633.",
           'bot'
         );
         console.error('[HomeFlair Widget]', err);
@@ -280,7 +280,7 @@
     });
   }
 
-  /* ── 7. Boot ───────────────────────────────────────────────────────────── */
+  /* -- 7. Boot ------------------------------------------------------------ */
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
   } else {
