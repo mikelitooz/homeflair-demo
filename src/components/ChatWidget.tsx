@@ -16,6 +16,7 @@ declare global {
         name: string;
         price: number;
         brand: string;
+        dimensions: string;
         leadTimeType: "in_stock" | "made_to_order";
         url: string;
         sku: string;
@@ -47,6 +48,7 @@ export default function ChatWidget() {
             name: product.name, // for n8n
             price: product.price,
             brand: product.brand || "",
+            dimensions: product.dimensions || "", // for n8n
             leadTimeType: product.leadTimeType || "made_to_order",
             url: `${window.location.origin}/product/${product.slug}`,
             sku: product.sku || "", // for n8n
@@ -90,7 +92,7 @@ export default function ChatWidget() {
       const bubble = document.getElementById("hf-chat-bubble");
       const panel = document.getElementById("hf-chat-panel");
       const script = document.getElementById("hf-widget-script");
-      
+
       bubble?.remove();
       panel?.remove();
       script?.remove();
